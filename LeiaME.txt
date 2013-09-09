@@ -1,0 +1,7 @@
+Estrutura de pasta:
+
+documentação:
+	Arquivos .tex e .pdf da documentação do jogo.
+
+rascunhos:
+	Algoritmos experimentais de funcionamento do jogo
