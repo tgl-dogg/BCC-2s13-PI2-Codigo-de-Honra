@@ -5,3 +5,6 @@ documentação:
 
 rascunhos:
 	Algoritmos experimentais de funcionamento do jogo
+
+menu:
+	Códigos para a criação do menu do jogo.

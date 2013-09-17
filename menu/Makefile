@@ -1,18 +1,19 @@
-CC = gcc
-CFLAGS = −W −Wall
-SRC = $(wildcard ∗.c)
-OBJ = $(SRC:.c=.o)
-LIBS = -lallegro -lallegro_image
+CC=gcc -std=c99
+CFLAGS=−W −Wall
+EXEC=game
+SRC:= $(wildcard *.c)
+OBJ= $(SRC:.c=.o)
+LIBS=-lallegro -lallegro_image
 
-all : exemplo
+all: $(EXEC)
 
-exemplo : $ (OBJ)
-	$(CC) −o $@ $^ $(LIBS)
+$(EXEC): $(OBJ)
+	$(CC) -o $@ $^ $(LIBS)
 
-%.o : %.c
-	$(CC) −o $@ −c $< $(CFLAGS)
+%.o: %.c
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 .PHONY: clean
 
 clean:
-	rm −r f ∗.o
+	rm -rf $(wildcard *.o)
