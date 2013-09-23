@@ -1,5 +1,5 @@
 CC=gcc -std=c99
-CFLAGS=−W −Wall
+CFLAGS= −W −Wall
 EXEC=game
 SRC:= $(wildcard *.c)
 OBJ= $(SRC:.c=.o)
@@ -11,7 +11,7 @@ $(EXEC): $(OBJ)
 	$(CC) -o $@ $^ $(LIBS)
 
 %.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	$(CC) -o $@ -c $<
 
 .PHONY: clean
 
