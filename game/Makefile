@@ -1,11 +1,12 @@
 CC=gcc -std=c99
 CFLAGS= −W −Wall
 EXEC=game
-SRC:= $(wildcard *.c)
+#SRC:= $(wildcard *.c)
+SRC:= $(wildcard *.c) $(wildcard */*.c)
 OBJ= $(SRC:.c=.o)
 LIBS=-lallegro -lallegro_image
 
-all: $(EXEC)
+all: $(EXEC) clean
 
 $(EXEC): $(OBJ)
 	$(CC) -o $@ $^ $(LIBS)
@@ -16,4 +17,4 @@ $(EXEC): $(OBJ)
 .PHONY: clean
 
 clean:
-	rm -rf $(wildcard *.o)
+	rm -rf $(OBJ)

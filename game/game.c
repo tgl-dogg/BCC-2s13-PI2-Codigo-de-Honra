@@ -1,6 +1,7 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include <stdio.h>
+#include "fases/fases.h"
 
 // Atributos da tela
 const int LARGURA_TELA = 800;
@@ -92,9 +93,13 @@ int main(void){
             else if (evento.mouse.x >= 350  && evento.mouse.x <= al_get_bitmap_width(start) + 350 &&
                      evento.mouse.y >= 250  && evento.mouse.y <= al_get_bitmap_height(start) + 250) {
                 printf("\nCarregando a primeira fase...");
-                
+
+
+                fase1_init(janela);
+                al_unregister_event_source(interacao, al_get_mouse_event_source());
                 //Atribui 1, desta forma valida o if abaixo e inicializa o jogo 
-                clique = 1;
+                clique = 2;
+
                 // primeira fase
                 if(clique == 1){
                     al_destroy_display(janela);
