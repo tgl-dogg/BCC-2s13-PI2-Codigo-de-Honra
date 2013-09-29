@@ -1,10 +1,18 @@
 Estrutura de pasta:
 
-documentação:
-	Arquivos .tex e .pdf da documentação do jogo.
+documentação/
+	- Arquivos .tex e .pdf da documentação do jogo.
 
-rascunhos:
-	Algoritmos experimentais de funcionamento do jogo
+rascunhos/
+	- Algoritmos experimentais de funcionamento do jogo
 
-menu:
-	Códigos para a criação do menu do jogo.
+game/
+	- Recursos do jogo
+	- Makefile
+
+	- src/ -> códigos-fonte do jogo
+	- res/ -> recursos
+		- img/ -> recursos de imagem
+		- font/ -> recursos de fonte
+		
+	- resources/ -> recursos antigos (obsoleto)
