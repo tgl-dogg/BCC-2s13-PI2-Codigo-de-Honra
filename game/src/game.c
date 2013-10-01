@@ -12,6 +12,8 @@ const int ALTURA_TELA = 600;
 int main(){
     // Variável representando a display principal
     ALLEGRO_DISPLAY *display = NULL;
+    // Variável representando a posição de tela
+    ALLEGRO_DISPLAY_MODE   disp_data;
     // Variável representando as imagens (menu)
     ALLEGRO_BITMAP *start = NULL, *leave = NULL;
     // Variável representando as interações de eventos
@@ -21,8 +23,18 @@ int main(){
     al_init();
     // Inicializa o add-on para utilização de imagens
     al_init_image_addon();
+    // Atribui em disp_data as configurações de tela
+    al_get_display_mode(0, &disp_data);
+
     // Configura o display
     display = al_create_display(LARGURA_TELA, ALTURA_TELA);
+    if (!display){
+        fprintf(stderr, "Falha ao criar display!\n");
+        return -1;
+    }
+    
+    // Atribui onde o display será posicionado
+    al_set_window_position(display, (disp_data.width-LARGURA_TELA)/2, (disp_data.height-ALTURA_TELA)/2);
     // Configura o título do display
     al_set_window_title(display, "CÓDIGO DE HONRA!");
 
@@ -33,6 +45,11 @@ int main(){
         return -1;
     }
 
+    int x, y;
+    x = disp_data.width;
+    y = disp_data.height;
+
+    printf("x: %d\ny: %d", x, y);
     // Atribui o cursor padrão do sistema para ser usado
     if (!al_set_system_mouse_cursor(display, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT)){
         fprintf(stderr, "Falha ao atribuir ponteiro do mouse.\n");
