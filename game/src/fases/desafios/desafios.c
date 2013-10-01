@@ -12,14 +12,12 @@ void draw_cards(ALLEGRO_BITMAP *img[], int n){
 	int i = 0;
 
 	for(i; i < n; i++){		
-		al_draw_scaled_bitmap(img[i], 0, 0, 512, 512,
-									x, y, 64, 64, 0);
+		al_draw_bitmap(img[i], x, y, 0);
 		x += 75;
 	}
 
 	y += 70;
-	al_draw_scaled_bitmap(img[0], 0, 0, 512, 512,
-									x, y, 64, 64, 0);
+	al_draw_bitmap(img[0], x, y, 0);
 }
 
 void desafio1_fase1(ALLEGRO_DISPLAY *janela){
