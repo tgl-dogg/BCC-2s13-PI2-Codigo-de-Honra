@@ -13,16 +13,26 @@ int main(){
     // Variável representando a display principal
     ALLEGRO_DISPLAY *display = NULL;
     // Variável representando a posição de tela
-    ALLEGRO_DISPLAY_MODE   disp_data;
+    ALLEGRO_DISPLAY_MODE disp_data;
     // Variável representando as imagens (menu)
     ALLEGRO_BITMAP *start = NULL, *leave = NULL;
     // Variável representando as interações de eventos
     ALLEGRO_EVENT_QUEUE *interacao = NULL;
+    // Variável representando eventos
+    ALLEGRO_EVENT evento;
+    // Variável representando cor da fonte
+    ALLEGRO_COLOR font_color;
+    // Variável representando as fontes utilizadas
+    ALLEGRO_FONT *font;
 
     // Inicializa a Allegro
     al_init();
     // Inicializa o add-on para utilização de imagens
     al_init_image_addon();
+    // inicializa a font_addon
+    al_init_font_addon();
+    // inicializa a ttf_(True Type Font)_addon
+    al_init_ttf_addon(); 
     // Atribui em disp_data as configurações de tela
     al_get_display_mode(0, &disp_data);
 
@@ -45,11 +55,6 @@ int main(){
         return -1;
     }
 
-    int x, y;
-    x = disp_data.width;
-    y = disp_data.height;
-
-    printf("x: %d\ny: %d", x, y);
     // Atribui o cursor padrão do sistema para ser usado
     if (!al_set_system_mouse_cursor(display, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT)){
         fprintf(stderr, "Falha ao atribuir ponteiro do mouse.\n");
@@ -57,13 +62,9 @@ int main(){
         return -1;
     }
 
-    // inicializa a font_addon
-    al_init_font_addon();
-    // inicializa a ttf_(True Type Font)_addon
-    al_init_ttf_addon(); 
     // carrega a font a ser usada
-    ALLEGRO_COLOR font_color = al_map_rgb(0, 0, 0);
-    ALLEGRO_FONT *font = al_load_ttf_font("res/font/poke_hollow.ttf", 60, 0);
+    font_color = al_map_rgb(0, 0, 0);
+    font = al_load_ttf_font("res/font/poke_hollow.ttf", 60, 0);
     if (!font){
         printf("Could not load poke_hollow.ttf");
         return 0;
@@ -95,11 +96,16 @@ int main(){
 
     // Inicialização das interações do mouse
     al_register_event_source(interacao, al_get_mouse_event_source());
+    al_register_event_source(interacao, al_get_display_event_source(display));
     
-    while (1){    
-        // Espera por um evento
-        ALLEGRO_EVENT evento;
+    while (1){
+        // Passando parâmetros da função
         al_wait_for_event(interacao, &evento);
+        
+        // Se houver clique no [X] ele registra o evento e para a execução do jogo
+        if (interacao && evento.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
+            break;
+        }
 
         // Se for um evento do tipo clique, vê a posição do clique.
         if (evento.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP){
