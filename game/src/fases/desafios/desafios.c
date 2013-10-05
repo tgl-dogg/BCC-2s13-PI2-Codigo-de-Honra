@@ -4,6 +4,10 @@
 #include <allegro5/allegro_ttf.h>
 #include <stdio.h>
 
+//extern evento;
+//extern interacao;
+//extern ALLEGRO_DISPLAY *display;
+
 void draw_cards(ALLEGRO_BITMAP *img[], int n){
 	// cards opções: x40 y445
 	// cards seleconado: x670 y25
@@ -11,13 +15,15 @@ void draw_cards(ALLEGRO_BITMAP *img[], int n){
 	int x = 40, y = 445;
 	int i = 0;
 
-	for(i; i < n; i++){		
+	for(i; i < n; i++){
+		if(x > 550){
+			x = 40;
+			y += 70;
+		}
+
 		al_draw_bitmap(img[i], x, y, 0);
 		x += 75;
 	}
-
-	y += 70;
-	al_draw_bitmap(img[0], x, y, 0);
 }
 
 void desafio1_fase1(ALLEGRO_DISPLAY *janela){
@@ -44,4 +50,10 @@ void desafio1_fase1(ALLEGRO_DISPLAY *janela){
     char txt[] = "Gotta code'em all!";	
 	al_draw_text(font, font_color, 800/2, (600/4), ALLEGRO_ALIGN_CENTRE, txt);
 	al_flip_display();
+
+    al_rest(7);
+
+    char txt2[] = "Faça x coisa!";	
+    al_draw_text(font, font_color, 800/2, (600/4), ALLEGRO_ALIGN_CENTRE, txt2);	
+    al_flip_display();
 }

@@ -120,9 +120,11 @@ int main(){
                      evento.mouse.y >= 250  && evento.mouse.y <= al_get_bitmap_height(start) + 250) {
                 printf("\nCarregando a primeira fase...");
 
+                // Desregistra os eventos de mouse (novos eventos serão criados)
+                al_unregister_event_source(interacao, al_get_mouse_event_source());
+
                 // Carrega primeira fase
                 fase1_init(display);
-                al_unregister_event_source(interacao, al_get_mouse_event_source());
 
             } else {
                 printf("\nEvento não suportado.");
