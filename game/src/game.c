@@ -1,8 +1,8 @@
+#include <stdio.h>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
-#include <stdio.h>
 #include "fases/fases.h"
 
 // Atributos da tela
@@ -10,8 +10,8 @@ const int LARGURA_TELA = 800;
 const int ALTURA_TELA = 600;
     
 int main(){
-    // Variável representando a display principal
-    ALLEGRO_DISPLAY *display = NULL;
+    // Variável representando a janela principal
+    ALLEGRO_DISPLAY *janela = NULL;
     // Variável representando a posição de tela
     ALLEGRO_DISPLAY_MODE disp_data;
     // Variável representando as imagens (menu)
@@ -37,28 +37,28 @@ int main(){
     al_get_display_mode(0, &disp_data);
 
     // Configura o display
-    display = al_create_display(LARGURA_TELA, ALTURA_TELA);
-    if (!display){
+    janela = al_create_display(LARGURA_TELA, ALTURA_TELA);
+    if (!janela){
         fprintf(stderr, "Falha ao criar display!\n");
         return -1;
     }
     
     // Atribui onde o display será posicionado
-    al_set_window_position(display, (disp_data.width-LARGURA_TELA)/2, (disp_data.height-ALTURA_TELA)/2);
+    al_set_window_position(janela, (disp_data.width-LARGURA_TELA)/2, (disp_data.height-ALTURA_TELA)/2);
     // Configura o título do display
-    al_set_window_title(display, "CÓDIGO DE HONRA!");
+    al_set_window_title(janela, "CÓDIGO DE HONRA!");
 
     // Torna apto o uso de mouse na aplicação
     if (!al_install_mouse()){
         fprintf(stderr, "Falha ao inicializar o mouse.\n");
-        al_destroy_display(display);
+        al_destroy_display(janela);
         return -1;
     }
 
     // Atribui o cursor padrão do sistema para ser usado
-    if (!al_set_system_mouse_cursor(display, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT)){
+    if (!al_set_system_mouse_cursor(janela, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT)){
         fprintf(stderr, "Falha ao atribuir ponteiro do mouse.\n");
-        al_destroy_display(display);
+        al_destroy_display(janela);
         return -1;
     }
 
@@ -90,13 +90,13 @@ int main(){
     interacao = al_create_event_queue();
     if (!interacao){
         fprintf(stderr, "Falha ao inicializar a interacao.\n");
-        al_destroy_display(display);
+        al_destroy_display(janela);
         return -1;
     }
 
     // Inicialização das interações do mouse
     al_register_event_source(interacao, al_get_mouse_event_source());
-    al_register_event_source(interacao, al_get_display_event_source(display));
+    al_register_event_source(interacao, al_get_display_event_source(janela));
     
     while (1){
         // Passando parâmetros da função
@@ -124,7 +124,7 @@ int main(){
                 al_unregister_event_source(interacao, al_get_mouse_event_source());
 
                 // Carrega primeira fase
-                fase1_init(display);
+                fase1_init(janela);
 
             } else {
                 printf("\nEvento não suportado.");
