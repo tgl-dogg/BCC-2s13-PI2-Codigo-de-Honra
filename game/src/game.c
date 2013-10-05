@@ -145,7 +145,7 @@ int main(){
     printf("\nFim da execução!\n");
  
     // Finaliza a display
-    al_destroy_display(display);
+    al_destroy_display(janela);
  
     return 0;
 }
