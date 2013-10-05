@@ -64,9 +64,9 @@ int main(){
 
     // carrega a font a ser usada
     font_color = al_map_rgb(0, 0, 0);
-    font = al_load_ttf_font("res/font/poke_hollow.ttf", 60, 0);
+    font = al_load_ttf_font("res/font/architectsdaughter.ttf", 60, 0);
     if (!font){
-        printf("Could not load poke_hollow.ttf");
+        printf("Could not load architectsdaughter.ttf");
         return 0;
     }  
     

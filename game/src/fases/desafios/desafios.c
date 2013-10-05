@@ -1,8 +1,9 @@
+#include <stdio.h>
+
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
-#include <stdio.h>
 
 //extern evento;
 //extern interacao;
@@ -28,14 +29,17 @@ void draw_cards(ALLEGRO_BITMAP *img[], int n){
 
 void desafio1_fase1(ALLEGRO_DISPLAY *janela){
     ALLEGRO_COLOR font_color = al_map_rgb(0, 0, 0);
+
+    ALLEGRO_BITMAP *bg = al_load_bitmap("res/img/bg/battle_layout.png");
+    al_draw_bitmap(bg, 0, 0, 0);
  
 	al_init_font_addon(); // initialize the font addon
 	al_init_ttf_addon();// initialize the ttf (True Type Font) addon
 	
-	ALLEGRO_FONT *font = al_load_ttf_font("res/font/poke_hollow.ttf", 40, 0);
+	ALLEGRO_FONT *font = al_load_ttf_font("res/font/judson.ttf", 40, 0);
 	
 	if (!font){
-		printf("Could not load poke_hollow.ttf");
+		printf("Could not load judson.ttf");
 		return;
 	}
 
@@ -62,7 +66,7 @@ void desafio1_fase1(ALLEGRO_DISPLAY *janela){
 	ALLEGRO_COLOR clr = al_map_rgb(255, 255, 255);
     al_clear_to_color(clr);
 
-    char txt2[] = "Faça x coisa!";	
+    char txt2[] = "Faça x coisa á é í ó ú ão!";	
     //al_draw_text(font, font_color, 800/2, (600/4), ALLEGRO_ALIGN_CENTRE, txt2);	
     al_draw_text(font, font_color, 0, 0, 0, txt2);	
     al_update_display_region(0, 0, 800, 400);
