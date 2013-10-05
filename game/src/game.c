@@ -4,6 +4,7 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
 #include "fases/fases.h"
+#include "fases/descricao/descricao.h"
 
 // Atributos da tela
 const int LARGURA_TELA = 800;
@@ -125,6 +126,7 @@ int main(){
 
                 // Carrega primeira fase
                 fase1_init(janela);
+                draw_text_fase1(janela);
 
             } else {
                 printf("\nEvento não suportado.");
