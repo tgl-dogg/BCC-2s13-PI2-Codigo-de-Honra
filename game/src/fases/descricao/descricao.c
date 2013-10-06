@@ -36,11 +36,12 @@ void draw_text_fase1(ALLEGRO_DISPLAY *janela){
 		return;
 	}
 
-	char text[9][34]={"carol noob", "carol loira",
-					  "zzz", "1234567890123456789012345678901234",
-					  "bom da certo essa porra", "porra",
-					  "eu quero minha caminha", "eu podia ta matando e robando", "esse pi ta me mantando"};
+	char text[9][34]={"Frase 1", "Frase 2", "Frase 3",
+					"Frase 4", "Frase 5", "Frase 6",
+					"Frase 7", "Frase 8", "Frase 9"};
+	
 	ALLEGRO_BITMAP *area_texto = al_create_sub_bitmap(al_get_backbuffer(janela), 150, 50, 510, 270);
+    
     al_set_target_bitmap(area_texto);
 	draw_text(font, font_color, text, 9);
 }

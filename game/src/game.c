@@ -125,7 +125,7 @@ int main(){
                 al_unregister_event_source(interacao, al_get_mouse_event_source());
 
                 // Carrega primeira fase
-                fase1_init(janela);
+                fase1_init(janela, interacao);
                 draw_text_fase1(janela);
 
             } else {
