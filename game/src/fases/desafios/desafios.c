@@ -5,6 +5,8 @@
 
 #include "desafios.h"
 #include "../../geral/cards.h"
+#include "../descricao/descricao.h"
+
 
 
 
@@ -76,6 +78,8 @@ int create_desafio(){
     draw_action_cards(im_act_set, img_size);
 
     al_flip_display();
+
+    draw_text_fase1(janela);
 
     // Cria uma event queue diferente da tela principal
 	ev_queue = al_create_event_queue();
