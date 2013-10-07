@@ -1,8 +1,10 @@
 #include <stdio.h>
+
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
+
 #include "fases/fases.h"
 #include "fases/descricao/descricao.h"
 
@@ -10,9 +12,10 @@
 const int LARGURA_TELA = 800;
 const int ALTURA_TELA = 600;
     
+// Variável representando a janela principal
+ALLEGRO_DISPLAY *janela = NULL;
+
 int main(){
-    // Variável representando a janela principal
-    ALLEGRO_DISPLAY *janela = NULL;
     // Variável representando a posição de tela
     ALLEGRO_DISPLAY_MODE disp_data;
     // Variável representando as imagens (menu)
@@ -125,7 +128,7 @@ int main(){
                 al_unregister_event_source(interacao, al_get_mouse_event_source());
 
                 // Carrega primeira fase
-                fase1_init(janela, interacao);
+                fase1_init();
                 draw_text_fase1(janela);
 
             } else {
