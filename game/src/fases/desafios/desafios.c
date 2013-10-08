@@ -5,9 +5,7 @@
 
 #include "desafios.h"
 #include "../../geral/cards.h"
-#include "../descricao/descricao.h"
-
-
+#include "..//descricao/descricao.h"
 
 
 void click_prog_buttons(clk_flag flags);
@@ -42,7 +40,7 @@ int create_desafio(){
 	ALLEGRO_BITMAP *im_memory = NULL;
 	ALLEGRO_BITMAP *im_compile = NULL;  
    	
-   	bg = al_load_bitmap("res/img/bg/battle_layout.png");
+   	bg = al_load_bitmap("res/img/bg/bg_test.png");
     al_draw_bitmap(bg, 0, 0, 0);
 
  	im_help = al_load_bitmap("res/img/gen/help.png");
@@ -79,8 +77,6 @@ int create_desafio(){
 
     al_flip_display();
 
-    draw_text_fase1(janela);
-
     // Cria uma event queue diferente da tela principal
 	ev_queue = al_create_event_queue();
 	// Registra a interação com o mouse novamente
@@ -101,6 +97,7 @@ int create_desafio(){
         	// Se o usuário clicou em compile ou reset, por enquanto finalizamos os eventos.
         	if(ev_type == 6 || ev_type == 7){
         		al_unregister_event_source(ev_queue, al_get_mouse_event_source());
+                printf("O erro esta aqui no compile ou reset!\n");
         		break;
         	}
         }
