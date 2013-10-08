@@ -120,14 +120,14 @@ int main(){
             // Clique no botão jogar.
             else if (evento.mouse.x >= 50  && evento.mouse.x <= al_get_bitmap_width(jogar) + 50 &&
                      evento.mouse.y >= 350  && evento.mouse.y <= al_get_bitmap_height(jogar) + 350) {
-                printf("\nCarregando a primeira fase...");
+                printf("\nCarregando a primeira fase...\n");
 
                 // Desregistra os eventos de mouse (novos eventos serão criados)
                 al_unregister_event_source(interacao, al_get_mouse_event_source());
 
                 // Carrega primeira fase
+                draw_text_fase1(janela);
                 fase1_init();
-                printf("clicou no compile...\n");
                 break;
             } else {
                 printf("\nEvento não suportado.");
