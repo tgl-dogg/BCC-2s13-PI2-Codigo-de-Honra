@@ -93,16 +93,16 @@ void draw_help_card(ALLEGRO_BITMAP *imagem){
 	draw_cards(img, 1, HELP_X, HELP_Y);
 }
 
-void draw_prog_cards(ALLEGRO_BITMAP *img[], int n){	
-	draw_cards(img, n, PROG_X, PROG_Y);
+void draw_prog_cards(ALLEGRO_BITMAP *img[], challenger_rule cr){	
+	draw_cards(img, cr.prog, PROG_X, PROG_Y);
 }
 
-void draw_conditional_cards(ALLEGRO_BITMAP *img[], int n){	
-	draw_cards(img, n, COND_X, COND_Y);
+void draw_conditional_cards(ALLEGRO_BITMAP *img[], challenger_rule cr){	
+	draw_cards(img, cr.cond, COND_X, COND_Y);
 }
 
-void draw_action_cards(ALLEGRO_BITMAP *img[], int n){	
-	draw_cards(img, n, ACT_X, ACT_Y);
+void draw_action_cards(ALLEGRO_BITMAP *img[], challenger_rule cr){	
+	draw_cards(img, cr.act, ACT_X, ACT_Y);
 }
 
 void draw_selected_cards(ALLEGRO_BITMAP *imagem, int i){
@@ -135,29 +135,23 @@ int check_bounds(ALLEGRO_EVENT ev, int left, int top, int right, int bottom){
 }
 
 // Verifica se o clique foi nas cartas (prog, cond, action) e valida o evento
-int check_cards_bounds(ALLEGRO_EVENT ev, int left, int top, int right, int bottom, clk_flag *flags){
+int check_cards_bounds(ALLEGRO_EVENT ev, int left, int top, int right, int bottom, clk_flag *flags, int level){
 	int i = 0;
 	int aux = top;
+	int card = 0;
 
 	for(i; i < 3; i++){
 		top = (i * BTN_MARGIN) + aux;
 
 		// Clique na primeira coluna
 		if(check_bounds(ev, left, top, left+64, top+64) == 1){
-			// Valida o evento
-			(*flags).ev_status = 1;	
-			// Posição da carta na matriz
-			(*flags).card_pos = (2*i);
-			// Número onde deve ser desenhada a carta na área de cartas selecionadas
-			(*flags).card_num = (*flags).card_num + 1;	
-			return 1;
+			card = 2*i;
+			return validate_card_click(flags, level, card);
 		}
 		// Clique na segunda coluna
 		else if (check_bounds(ev, right-64, top, right, top+64) == 1){
-			(*flags).ev_status = 1;
-			(*flags).card_pos = (2*i) + 1;
-			(*flags).card_num = (*flags).card_num + 1;
-			return 1;
+			card = (2*i) + 1;
+			return validate_card_click(flags, level, card);
 		}
 	}
 
@@ -165,17 +159,34 @@ int check_cards_bounds(ALLEGRO_EVENT ev, int left, int top, int right, int botto
 	return 0;
 }
 
+int validate_card_click(clk_flag *flags, int level, int card){
+	// A carta tem que estar no nível disponível para o usuário
+	if (card >= level){
+		(*flags).ev_status = -1;
+		(*flags).card_pos = -1;
+		return 0;
+	} else {		
+		// Valida o evento
+		(*flags).ev_status = 1;
+		// Posição da carta na matriz de alocação de imagens
+		(*flags).card_pos = card;
+		// Número onde deve ser desenhada a carta na área de cartas selecionadas
+		(*flags).card_num = (*flags).card_num + 1;
+		return 1;
+	}
+}
+
 /*
  Detecta a posição do clique do usuário, retorna 0 caso não seja válido,
  retorna 1 para prog, 2 para condition, 3 para action
  4 para memory, 5 para help, 6 para compile, 7 para reset.
 */
-int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags){
-	if(check_cards_bounds(ev, PROG_X, PROG_Y, PROG_X+PROG_W, PROG_Y+PROG_H, flags) == 1){
+int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags, challenger_rule cr){
+	if(check_cards_bounds(ev, PROG_X, PROG_Y, PROG_X+PROG_W, PROG_Y+PROG_H, flags, cr.prog) == 1){
 		return 1;
-	} else if (check_cards_bounds(ev, COND_X, COND_Y, COND_X+COND_W, COND_Y+COND_H, flags) == 1){
+	} else if (check_cards_bounds(ev, COND_X, COND_Y, COND_X+COND_W, COND_Y+COND_H, flags, cr.cond) == 1){
 		return 2;
-	} else if (check_cards_bounds(ev, ACT_X, ACT_Y, ACT_X+ACT_W, ACT_Y+ACT_H, flags) == 1){
+	} else if (check_cards_bounds(ev, ACT_X, ACT_Y, ACT_X+ACT_W, ACT_Y+ACT_H, flags, cr.act) == 1){
 		return 3;
 	} else if (check_bounds(ev, MEM_X, MEM_Y, MEM_X+MEM_W, MEM_Y+MEM_H) == 1){
 		return 4;
@@ -193,7 +204,7 @@ int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags){
 }
 
 /*
-Verifica se os dois vetores são iguais. Se iguais, retorna -1.
+Verifica se os dois vetores de cartas são iguais. Se iguais, retorna -1.
 Se diferentes, retorna o index onde começa a diferença entre eles.
 */
 int validate_selection(int v1[], int v2[]) {

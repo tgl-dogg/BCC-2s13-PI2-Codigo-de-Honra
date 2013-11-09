@@ -7,13 +7,11 @@
 #include "../../geral/cards.h"
 #include "..//descricao/descricao.h"
 
+void click_prog_buttons(clk_flag flags, challenger_rule cr);
+void click_condition_buttons(clk_flag flags, challenger_rule cr);
+void click_action_buttons(clk_flag flags, challenger_rule cr);
 
-void click_prog_buttons(clk_flag flags);
-void click_condition_buttons(clk_flag flags);
-void click_action_buttons(clk_flag flags);
-
-int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags);
-void execute_event(int ev_type, clk_flag flags);
+void execute_event(int ev_type, clk_flag flags, challenger_rule cr);
 
 
 // Arrays globais da área de seleção do usuário
@@ -25,7 +23,7 @@ static ALLEGRO_BITMAP *im_act_set[6];
 // Variável externa
 extern ALLEGRO_DISPLAY *janela;
 
-int create_desafio(){
+int create_desafio(challenger_rule cr){
     // Nova event queue para registrar os eventos desta janela
     ALLEGRO_EVENT_QUEUE *ev_queue = NULL;
 
@@ -71,9 +69,9 @@ int create_desafio(){
     draw_memory_card(im_memory);
     draw_compile_card(im_compile);
 
-    draw_prog_cards(im_prog_set, img_size);    
-    draw_conditional_cards(im_cond_set, img_size);
-    draw_action_cards(im_act_set, img_size);
+    draw_prog_cards(im_prog_set, cr);    
+    draw_conditional_cards(im_cond_set, cr);
+    draw_action_cards(im_act_set, cr);
 
     al_flip_display();
 
@@ -90,9 +88,10 @@ int create_desafio(){
 
         if (ev_click.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP){
         	// detecta o tipo de evento e seta as flags
-        	ev_type = detect_click_pos(ev_click, &ev_flag);
+        	ev_type = detect_click_pos(ev_click, &ev_flag, cr);
+
         	//executa o evento especificado
-        	execute_event(ev_type, ev_flag);
+        	execute_event(ev_type, ev_flag, cr);
         	
         	// Se o usuário clicou em compile ou reset, por enquanto finalizamos os eventos.
         	if(ev_type == 6 || ev_type == 7){
@@ -109,50 +108,66 @@ int create_desafio(){
 }
 
 // Clique nas cartas de programação
-void click_prog_buttons(clk_flag flags){
+void click_prog_buttons(clk_flag flags, challenger_rule cr){
+    // Verifica se o status está ok (== 1)
 	if(flags.ev_status == 1){
-		draw_selected_cards(im_prog_set[flags.card_pos], flags.card_num);
+        // verifica o "nível de carta" em programação 
+        // para saber se o usuário pode utilizar a posição em que clicou
+        if(flags.card_pos < cr.prog){
+            draw_selected_cards(im_prog_set[flags.card_pos], flags.card_num);
+        }
 	}
 }
 
 // Clique nas cartas de condição
-void click_condition_buttons(clk_flag flags){
+void click_condition_buttons(clk_flag flags, challenger_rule cr){
 	if(flags.ev_status == 1){
-		draw_selected_cards(im_cond_set[flags.card_pos], flags.card_num);
+        if(flags.card_pos < cr.cond){
+            draw_selected_cards(im_cond_set[flags.card_pos], flags.card_num);
+        }
 	}
 }
 
 // Clique nas cartas de ação
-void click_action_buttons(clk_flag flags){
-	if(flags.ev_status == 1){
-		draw_selected_cards(im_act_set[flags.card_pos], flags.card_num);
+void click_action_buttons(clk_flag flags, challenger_rule cr){
+	if(flags.ev_status == 1){        
+        if(flags.card_pos < cr.act){
+            draw_selected_cards(im_act_set[flags.card_pos], flags.card_num);
+        }
 	}
 }
 
 // depois de detectar o evento, executa o mesmo de acordo com o tipo e as flags
-void execute_event(int ev_type, clk_flag flags){
+void execute_event(int ev_type, clk_flag flags, challenger_rule cr){
 	switch(ev_type){
+        // Cartas de programação
 		case 1:
-			click_prog_buttons(flags);
+			click_prog_buttons(flags, cr);
 			break;
 
+        // Cartas de condição
 		case 2:
-			click_condition_buttons(flags);
+			click_condition_buttons(flags, cr);
 			break;
 
+        // Cartas de ação
 		case 3:
-			click_action_buttons(flags);
+			click_action_buttons(flags, cr);
 			break;
 
+        // Carta de memória
 		case 4:
 			break;	
 
+        // Carta de ajuda
 		case 5:
 			break;
 
+        // Carta de compilar
 		case 6:
 			break;
 
+        // Carta de reset
 		case 7:
 			break;
 	}

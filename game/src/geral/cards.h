@@ -28,14 +28,17 @@ void draw_compile_card(ALLEGRO_BITMAP *imagem);
 void draw_memory_card(ALLEGRO_BITMAP *imagem);
 void draw_help_card(ALLEGRO_BITMAP *imagem);
 
-void draw_prog_cards(ALLEGRO_BITMAP *img[], int n);
-void draw_conditional_cards(ALLEGRO_BITMAP *img[], int n);
-void draw_action_cards(ALLEGRO_BITMAP *img[], int n);
+void draw_prog_cards(ALLEGRO_BITMAP *img[], challenger_rule cr);
+void draw_conditional_cards(ALLEGRO_BITMAP *img[], challenger_rule cr);
+void draw_action_cards(ALLEGRO_BITMAP *img[], challenger_rule cr);
 
 void draw_selected_cards(ALLEGRO_BITMAP *imagem, int i);
 
 int check_bounds(ALLEGRO_EVENT ev, int left, int top, int right, int bottom);
-int check_cards_bounds(ALLEGRO_EVENT ev, int left, int top, int right, int bottom, clk_flag *flags);
-int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags);
+int check_cards_bounds(ALLEGRO_EVENT ev, int left, int top, int right, int bottom, clk_flag *flags, int level);
+int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags, challenger_rule cr);
+
+int validate_card_click(clk_flag *flags, int level, int card);
+int validate_cards(int v1[], int v2[]);
 
 #endif
