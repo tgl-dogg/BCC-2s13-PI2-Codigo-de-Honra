@@ -4,22 +4,22 @@
 #include "cards.h"
 
 // Posição e tamanho da área "programação"
-#define PROG_X 35
-#define PROG_Y 350
-#define PROG_W 150
-#define PROG_H 210
+#define PROG_X 47
+#define PROG_Y 390
+#define PROG_W 134
+#define PROG_H 204
 
 // Posição e tamanho da área "condição"
-#define COND_X 215
-#define COND_Y 350
-#define COND_W 150
-#define COND_H 210
+#define COND_X 228
+#define COND_Y 390
+#define COND_W 134
+#define COND_H 204
 
 // Posição e tamanho da área "ações"
 #define ACT_X 395
-#define ACT_Y 350
-#define ACT_W 150
-#define ACT_H 210
+#define ACT_Y 390
+#define ACT_W 134
+#define ACT_H 204
 
 // Posição e tamanho do botão memória
 #define MEM_X 608
@@ -55,15 +55,15 @@
 #define BTN_MARGIN 70
 
 void draw_cards(ALLEGRO_BITMAP *img[], int n, int x, int y){
-	if(n >= 15){
-		return;
-	}
-
 	int i = 0;
 	int start_x = x;
 	int start_y = y;
 	int lim_x = x+128;
 	int lim_y = y+172;
+
+	if(n >= 15){
+		return;
+	}
 
 	for(i; i < n; i++){
 		if(img[i] != NULL){
@@ -190,4 +190,22 @@ int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags){
 	}
 
 	return 0;
+}
+
+/*
+Verifica se os dois vetores são iguais. Se iguais, retorna -1.
+Se diferentes, retorna o index onde começa a diferença entre eles.
+*/
+int validate_selection(int v1[], int v2[]) {
+	int i;
+	int index = -1;
+
+	for (i = 0; i < 15; i++) {
+		if (v1[i] != v2[i]) {
+			index = i;
+			break;
+		}
+	}
+
+	return i;
 }

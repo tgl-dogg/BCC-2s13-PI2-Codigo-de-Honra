@@ -11,7 +11,18 @@ typedef struct {
 		int card_pos;
 		// contador do número de cartas já desenhadas
 		int card_num;
-        } clk_flag;
+} clk_flag;
+
+typedef struct {
+	// nível de programação
+	int prog;
+	// nível de condição
+	int cond;
+	// nível de ação
+	int act;
+	// vetor de "sequência correta"
+	int v[15];
+} challenger_rule; 
 
 void draw_compile_card(ALLEGRO_BITMAP *imagem);
 void draw_memory_card(ALLEGRO_BITMAP *imagem);
