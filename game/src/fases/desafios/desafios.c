@@ -11,8 +11,15 @@ void click_prog_buttons(clk_flag flags, challenger_rule cr);
 void click_condition_buttons(clk_flag flags, challenger_rule cr);
 void click_action_buttons(clk_flag flags, challenger_rule cr);
 
-void execute_event(int ev_type, clk_flag flags, challenger_rule cr);
+void execute_event(int ev_type, clk_flag flags, challenger_rule cr, int card_set[]);
 
+typedef struct {
+    int v[15];
+    int f;
+} pile;
+
+// Variável externa
+extern ALLEGRO_DISPLAY *janela;
 
 // Arrays globais da área de seleção do usuário
 static int img_size = 6;
@@ -20,10 +27,11 @@ static ALLEGRO_BITMAP *im_prog_set[6];
 static ALLEGRO_BITMAP *im_cond_set[6];
 static ALLEGRO_BITMAP *im_act_set[6];
 
-// Variável externa
-extern ALLEGRO_DISPLAY *janela;
-
 int create_desafio(challenger_rule cr){
+    // Guarda o resultado da nossa operação.
+    int resultado = 0, i;
+    pile card_set;
+
     // Nova event queue para registrar os eventos desta janela
     ALLEGRO_EVENT_QUEUE *ev_queue = NULL;
 
@@ -75,6 +83,14 @@ int create_desafio(challenger_rule cr){
 
     al_flip_display();
 
+    // Inicializa a struct de set de card.
+    // TODO mudar para uma pilha.
+    card_set.f = 0;
+
+    for(i = 0; i < 15; i++){
+        pile.v[i] = -1;
+    }
+
     // Cria uma event queue diferente da tela principal
 	ev_queue = al_create_event_queue();
 	// Registra a interação com o mouse novamente
@@ -91,7 +107,7 @@ int create_desafio(challenger_rule cr){
         	ev_type = detect_click_pos(ev_click, &ev_flag, cr);
 
         	//executa o evento especificado
-        	execute_event(ev_type, ev_flag, cr);
+        	execute_event(ev_type, ev_flag, cr, card_set);
         	
         	// Se o usuário clicou em compile ou reset, por enquanto finalizamos os eventos.
         	if(ev_type == 6 || ev_type == 7){
@@ -104,7 +120,7 @@ int create_desafio(challenger_rule cr){
 
     // Destrói esta instância de eventos para não interferir nos outros eventos do jogo
     al_destroy_event_queue(ev_queue);
-    return 0;
+    return resultado;
 }
 
 // Clique nas cartas de programação
@@ -138,37 +154,46 @@ void click_action_buttons(clk_flag flags, challenger_rule cr){
 }
 
 // depois de detectar o evento, executa o mesmo de acordo com o tipo e as flags
-void execute_event(int ev_type, clk_flag flags, challenger_rule cr){
+void execute_event(int ev_type, clk_flag flags, challenger_rule cr, int card_set[]){
 	switch(ev_type){
         // Cartas de programação
 		case 1:
-			click_prog_buttons(flags, cr);
+			click_prog_buttons(flags, cr, card_set);
 			break;
 
         // Cartas de condição
 		case 2:
-			click_condition_buttons(flags, cr);
+			click_condition_buttons(flags, cr, card_set);
 			break;
 
         // Cartas de ação
 		case 3:
-			click_action_buttons(flags, cr);
+			click_action_buttons(flags, cr, card_set);
 			break;
 
         // Carta de memória
 		case 4:
+            // mostrar instruções
 			break;	
 
         // Carta de ajuda
 		case 5:
+            // mostrar ajuda
 			break;
 
         // Carta de compilar
 		case 6:
+            if(validate_cards(cr.v, card_set) == -1){
+                //GGWP return -1;
+            } else {
+                //deubosta return indice da carta errada == 0;
+            }
+            // validar 
 			break;
 
         // Carta de reset
 		case 7:
+            // criar
 			break;
 	}
 
