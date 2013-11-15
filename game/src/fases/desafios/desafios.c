@@ -7,44 +7,19 @@
 #include "../../geral/cards.h"
 #include "..//descricao/descricao.h"
 
-void click_prog_buttons(clk_flag flags, challenger_rule cr);
-void click_condition_buttons(clk_flag flags, challenger_rule cr);
-void click_action_buttons(clk_flag flags, challenger_rule cr);
-
-void execute_event(int ev_type, clk_flag flags, challenger_rule cr, int card_set[]);
-
 typedef struct {
     int v[15];
     int f;
-} pile;
+} card_pile;
 
-int pile_add(pile *cs, int n){
-    // se estourar o vetor retorna erro
-    if((*cs).f >= 15){
-        return 0;
-    }
+int card_pull(pile *cp, int n);
+int card_pop(pile *cp);
 
-    // adiciona n ao vetor na posição final e incrementa o final.
-    (*cs).v[(*cs).f++] = n;
-    // retorna sucesso
-    return 1;
-}
+void click_prog_buttons(clk_flag flags, challenger_rule cr, card_pile *cp);
+void click_condition_buttons(clk_flag flags, challenger_rule cr, card_pile *cp);
+void click_action_buttons(clk_flag flags, challenger_rule cr, card_pile *cp);
 
-int pile_rm(pile *cs){
-    int i;
-    // verifica se a pilha não está vazia.
-    if((*cs).f == 0){
-        // retorna -1 porque é garantido que os valores do vetor v serão naturais.
-        return -1;
-    }
-
-    // armazena o valor no topo da pilha.
-    i = (*cs).v[(*cs).f];
-    // seta a posição que era topo para -1 e decrementa o topo.
-    (*cs).v[(*cs).f--] = -1;
-    // retorna o valor que era o topo da pilha
-    return i;
-}
+void execute_event(int ev_type, clk_flag flags, challenger_rule cr, pile *cp);
 
 // Variável externa
 extern ALLEGRO_DISPLAY *janela;
@@ -55,10 +30,11 @@ static ALLEGRO_BITMAP *im_prog_set[6];
 static ALLEGRO_BITMAP *im_cond_set[6];
 static ALLEGRO_BITMAP *im_act_set[6];
 
+/* Cria o desafio de acordo com a regra de desafio (challenger_rule). */
 int create_desafio(challenger_rule cr){
     // Guarda o resultado da nossa operação.
     int resultado = 0, i;
-    pile card_set;
+    card_pile card_set;
 
     // Nova event queue para registrar os eventos desta janela
     ALLEGRO_EVENT_QUEUE *ev_queue = NULL;
@@ -152,7 +128,7 @@ int create_desafio(challenger_rule cr){
 }
 
 // Clique nas cartas de programação
-void click_prog_buttons(clk_flag flags, challenger_rule cr){
+void click_prog_buttons(clk_flag flags, challenger_rule cr, card_pile *cp){
     // Verifica se o status está ok (== 1)
 	if(flags.ev_status == 1){
         // verifica o "nível de carta" em programação 
@@ -164,7 +140,7 @@ void click_prog_buttons(clk_flag flags, challenger_rule cr){
 }
 
 // Clique nas cartas de condição
-void click_condition_buttons(clk_flag flags, challenger_rule cr){
+void click_condition_buttons(clk_flag flags, challenger_rule cr, card_pile *cp){
 	if(flags.ev_status == 1){
         if(flags.card_pos < cr.cond){
             draw_selected_cards(im_cond_set[flags.card_pos], flags.card_num);
@@ -173,7 +149,7 @@ void click_condition_buttons(clk_flag flags, challenger_rule cr){
 }
 
 // Clique nas cartas de ação
-void click_action_buttons(clk_flag flags, challenger_rule cr){
+void click_action_buttons(clk_flag flags, challenger_rule cr, card_pile *cp){
 	if(flags.ev_status == 1){        
         if(flags.card_pos < cr.act){
             draw_selected_cards(im_act_set[flags.card_pos], flags.card_num);
@@ -182,21 +158,21 @@ void click_action_buttons(clk_flag flags, challenger_rule cr){
 }
 
 // depois de detectar o evento, executa o mesmo de acordo com o tipo e as flags
-void execute_event(int ev_type, clk_flag flags, challenger_rule cr, int card_set[]){
+void execute_event(int ev_type, clk_flag flags, challenger_rule cr, card_pile *cp){
 	switch(ev_type){
         // Cartas de programação
 		case 1:
-			click_prog_buttons(flags, cr, card_set);
+			click_prog_buttons(flags, cr, cp);
 			break;
 
         // Cartas de condição
 		case 2:
-			click_condition_buttons(flags, cr, card_set);
+			click_condition_buttons(flags, cr, cp);
 			break;
 
         // Cartas de ação
 		case 3:
-			click_action_buttons(flags, cr, card_set);
+			click_action_buttons(flags, cr, cp);
 			break;
 
         // Carta de memória
@@ -211,7 +187,7 @@ void execute_event(int ev_type, clk_flag flags, challenger_rule cr, int card_set
 
         // Carta de compilar
 		case 6:
-            if(validate_cards(cr.v, card_set) == -1){
+            if(validate_cards((*cp).v, card_set) == -1){
                 //GGWP return -1;
             } else {
                 //deubosta return indice da carta errada == 0;
@@ -226,4 +202,37 @@ void execute_event(int ev_type, clk_flag flags, challenger_rule cr, int card_set
 	}
 
 	al_flip_display();
+}
+
+/* Adiciona novo valor à pilha de cartas.
+Retorna 0 em erro ou 1 em sucesso. */
+int card_pull(pile *cp, int n){
+    // se estourar o vetor retorna erro
+    if((*cs).f >= 15){
+        return 0;
+    }
+
+    // adiciona n ao vetor na posição final e incrementa o final.
+    (*cs).v[(*cs).f++] = n;
+    // retorna sucesso
+    return 1;
+}
+
+/* Remove o valor no topo da pilha de cartas.
+Retorna -1 em erro ou o valor em sucesso. 
+*/
+int card_pop(pile *cp){
+    int i;
+    // verifica se a pilha não está vazia.
+    if((*cs).f == 0){
+        // retorna -1 porque é garantido que os valores do vetor v serão naturais.
+        return -1;
+    }
+
+    // armazena o valor no topo da pilha.
+    i = (*cs).v[(*cs).f];
+    // seta a posição que era topo para -1 e decrementa o topo.
+    (*cs).v[(*cs).f--] = -1;
+    // retorna o valor que era o topo da pilha
+    return i;
 }
