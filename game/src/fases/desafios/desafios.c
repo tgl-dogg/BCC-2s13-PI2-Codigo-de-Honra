@@ -18,6 +18,18 @@ typedef struct {
     int f;
 } pile;
 
+int pile_add(pile *cs, int n){
+    // se estourar o vetor retorna erro
+    if((*cs).f >= 15){
+        return 0;
+    }
+
+    // adiciona n ao vetor na posição final e incrementa o final.
+    (*cs).v[(*cs).f++] = n;
+    // retorna sucesso
+    return 1;
+}
+
 // Variável externa
 extern ALLEGRO_DISPLAY *janela;
 
