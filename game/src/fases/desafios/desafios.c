@@ -134,6 +134,9 @@ void click_prog_buttons(clk_flag flags, challenger_rule cr, card_pile *cp){
         // verifica o "nível de carta" em programação 
         // para saber se o usuário pode utilizar a posição em que clicou
         if(flags.card_pos < cr.prog){
+            // Adiciona a carta à pilha de cartas do usuário.
+            card_pull(cp, flags.card_num);            
+            // Desenha ela na área de cartas selecionadas.
             draw_selected_cards(im_prog_set[flags.card_pos], flags.card_num);
         }
 	}
@@ -142,7 +145,12 @@ void click_prog_buttons(clk_flag flags, challenger_rule cr, card_pile *cp){
 // Clique nas cartas de condição
 void click_condition_buttons(clk_flag flags, challenger_rule cr, card_pile *cp){
 	if(flags.ev_status == 1){
+        // verifica o "nível de carta" em programação 
+        // para saber se o usuário pode utilizar a posição em que clicou
         if(flags.card_pos < cr.cond){
+            // Adiciona a carta à pilha de cartas do usuário.
+            card_pull(cp, flags.card_num);
+            // Desenha ela na área de cartas selecionadas.
             draw_selected_cards(im_cond_set[flags.card_pos], flags.card_num);
         }
 	}
@@ -150,8 +158,13 @@ void click_condition_buttons(clk_flag flags, challenger_rule cr, card_pile *cp){
 
 // Clique nas cartas de ação
 void click_action_buttons(clk_flag flags, challenger_rule cr, card_pile *cp){
-	if(flags.ev_status == 1){        
+	if(flags.ev_status == 1){      
+        // verifica o "nível de carta" em programação 
+        // para saber se o usuário pode utilizar a posição em que clicou  
         if(flags.card_pos < cr.act){
+            // Adiciona a carta à pilha de cartas do usuário.
+            card_pull(cp, flags.card_num);
+            // Desenha ela na área de cartas selecionadas.
             draw_selected_cards(im_act_set[flags.card_pos], flags.card_num);
         }
 	}
