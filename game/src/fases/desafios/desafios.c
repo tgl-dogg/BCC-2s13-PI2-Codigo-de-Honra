@@ -30,6 +30,22 @@ int pile_add(pile *cs, int n){
     return 1;
 }
 
+int pile_rm(pile *cs){
+    int i;
+    // verifica se a pilha não está vazia.
+    if((*cs).f == 0){
+        // retorna -1 porque é garantido que os valores do vetor v serão naturais.
+        return -1;
+    }
+
+    // armazena o valor no topo da pilha.
+    i = (*cs).v[(*cs).f];
+    // seta a posição que era topo para -1 e decrementa o topo.
+    (*cs).v[(*cs).f--] = -1;
+    // retorna o valor que era o topo da pilha
+    return i;
+}
+
 // Variável externa
 extern ALLEGRO_DISPLAY *janela;
 
