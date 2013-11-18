@@ -65,7 +65,7 @@ void draw_cards(ALLEGRO_BITMAP *img[], int n, int x, int y){
 		return;
 	}
 
-	for(i; i < n; i++){
+	for(i; i < n; i++){	
 		if(img[i] != NULL){
 			if(x > lim_x){
 				x = start_x;
@@ -119,7 +119,7 @@ void draw_selected_cards(ALLEGRO_BITMAP *imagem, int i){
 	}
 
 	x += (BTN_MARGIN * i);
-	draw_cards(img, 1, x, y);	
+	draw_cards(img, 1, x, y);
 }
 
 // Verifica se o clique do evento foi dentro das posições especificadas
