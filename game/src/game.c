@@ -1,12 +1,17 @@
+// libs padrões do C
 #include <stdio.h>
+#include <stdlib.h>
 
+// libs do allegro
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
 
+// libs implementadas
 #include "fases/fases.h"
 #include "fases/descricao/descricao.h"
+#include "geral/dialog.h"
 
 // Atributos da tela
 const int LARGURA_TELA = 800;
@@ -15,7 +20,7 @@ const int ALTURA_TELA = 600;
 // Variável representando a janela principal
 ALLEGRO_DISPLAY *janela = NULL;
 
-int main(){
+int main() {
     // Variável representando a posição de tela
     ALLEGRO_DISPLAY_MODE disp_data;
     // Variável representando as imagens (menu)
@@ -60,7 +65,7 @@ int main(){
     }
 
     // Atribui o cursor padrão do sistema para ser usado
-    if (!al_set_system_mouse_cursor(janela, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT)){
+    if (!al_set_system_mouse_cursor(janela, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT)) {
         fprintf(stderr, "Falha ao atribuir ponteiro do mouse.\n");
         al_destroy_display(janela);
         return -1;
@@ -69,8 +74,8 @@ int main(){
     // carrega a font a ser usada
     font_color = al_map_rgb(0, 0, 0);
     font = al_load_ttf_font("res/font/architectsdaughter.ttf", 60, 0);
-    if (!font){
-        printf("Could not load architectsdaughter.ttf");
+    if (!font) {
+        printf("Falha ao inicializar architectsdaughter.ttf");
         return 0;
     }  
 
@@ -90,7 +95,7 @@ int main(){
 
     // Criando interações do mouse
     interacao = al_create_event_queue();
-    if (!interacao){
+    if (!interacao) {
         fprintf(stderr, "Falha ao inicializar a interacao.\n");
         al_destroy_display(janela);
         return -1;
@@ -100,17 +105,17 @@ int main(){
     al_register_event_source(interacao, al_get_mouse_event_source());
     al_register_event_source(interacao, al_get_display_event_source(janela));
     
-    while (1){
+    while (1) {
         // Passando parâmetros da função
         al_wait_for_event(interacao, &evento);
         
         // Se houver clique no [X] ele registra o evento e para a execução do jogo
-        if (interacao && evento.type == ALLEGRO_EVENT_DISPLAY_CLOSE){
+        if (interacao && evento.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
             break;
         }
 
         // Se for um evento do tipo clique, vê a posição do clique.
-        if (evento.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP){
+        if (evento.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
             // Clique no botão sair.
             if (evento.mouse.x >= 50 && evento.mouse.x <= al_get_bitmap_width(sair) + 50 &&
                 evento.mouse.y >= 450 && evento.mouse.y <= al_get_bitmap_height(sair) + 450) {
@@ -126,8 +131,9 @@ int main(){
                 al_unregister_event_source(interacao, al_get_mouse_event_source());
 
                 // Carrega primeira fase
-                draw_text_fase1(janela);
+                load_description_f1(janela);
                 fase1_init();
+
                 break;
             } else {
                 printf("\nEvento não suportado.");
@@ -143,6 +149,7 @@ int main(){
         // Atualiza a tela
         al_flip_display();            
     }
+
     // Segura a execução
     al_rest(0.5);
     printf("\nFim da execução!\n");
