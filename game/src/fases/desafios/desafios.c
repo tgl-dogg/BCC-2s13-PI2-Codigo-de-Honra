@@ -38,7 +38,7 @@ int create_desafio(challenger_rule cr){
     // Cria flag para controle dos eventos de clique.
     clk_flag ev_flag = {-1, -1, -1, -1};   
     // Cria pilha de cartas.
-    card_pile *card_set;
+    card_pile card_set;
 
     // Nova event queue para registrar os eventos desta janela.
     ALLEGRO_EVENT_QUEUE *ev_queue = NULL;
@@ -92,7 +92,7 @@ int create_desafio(challenger_rule cr){
     al_flip_display();
 
     // Inicializa a struct de set de card.
-    card_pile_init(card_set);
+    card_pile_init(&card_set);
 
     // Cria uma event queue diferente da tela principal.
 	ev_queue = al_create_event_queue();
@@ -109,7 +109,7 @@ int create_desafio(challenger_rule cr){
         	ev_type = detect_click_pos(ev_click, &ev_flag, cr);
 
         	//executa o evento especificado.
-        	execute_event(ev_type, ev_flag, cr, card_set);
+        	execute_event(ev_type, ev_flag, cr, &card_set);
             al_flip_display();  
             printf("\n\nEvento executado!\n\n");
         	
