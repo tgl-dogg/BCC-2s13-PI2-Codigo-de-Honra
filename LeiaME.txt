@@ -1,13 +1,21 @@
 Estrutura de pasta:
 
 documentação/
-	- Arquivos .tex e .pdf da documentação do jogo.
-	
-guia/
-	-Guia para o desenvolvimento do artigo. 
+	- Arquivos .tex e .pdf da documentação do jogo e do poster.
+	/estruturando o artigo 
+		- Arquivos .tex e .pdf com a implementação do artigo.
+	/estruturando o poster 
+		- Arquivos .tex e .pdf com a implementação do poster.
+	/img
+		- Imagens a serem usadas na documentação.
+	/regras CBIE
+		- Arquivos .tex e .pdf de um guia para construir o artigo.
 
 rascunhos/
-	- Algoritmos experimentais de funcionamento do jogo
+	/codigos
+		- Arquivos .c de implementações usadas como rascunho.
+	/resources
+		- Pastas com imagens usadas durante a criação do jogo.
 
 game/
 	- Recursos do jogo
@@ -17,5 +25,4 @@ game/
 	- res/ -> recursos
 		- img/ -> recursos de imagem
 		- font/ -> recursos de fonte
-		
-	- resources/ -> recursos antigos (obsoleto)
+		- txt/ -> recursos de texto
