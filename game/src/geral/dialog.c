@@ -83,15 +83,15 @@ int load_cond(char cond1[][MAX], char cond2[][MAX]) {
     }
 
     font_color = al_map_rgb(255, 255, 255);
-    font = al_load_ttf_font("../../res/font/architectsdaughter.ttf", 20, 0);
+    font = al_load_ttf_font("res/font/architectsdaughter.ttf", 20, 0);
     if(!font){
         printf("Falha ao carregar architectsdaughter.ttf");
         return 0;
     }
 
     // carrega as imagens
-    bnew1 = al_load_bitmap("../../res/img/dialog/bnew.png");
-    bnew2 = al_load_bitmap("../../res/img/dialog/bnew.png");
+    bnew1 = al_load_bitmap("res/img/menu/bnew.png");
+    bnew2 = al_load_bitmap("res/img/menu/bnew.png");
 
     // desenha as imagens
     al_clear_to_color(al_map_rgb(0, 0, 0));

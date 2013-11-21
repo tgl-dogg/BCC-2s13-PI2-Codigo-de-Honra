@@ -188,11 +188,6 @@ void load_description_f1(ALLEGRO_DISPLAY *janela){
     while (close!=1) {
         // inicia os eventos atuais
         init_ev();
-        
-        // Se houver clique no [X] ele registra o evento e para a execução do jogo
-        if (reg_ev && ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-            return;
-        }
 
         // Se for um evento do tipo clique, vê a posição do clique.
         if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
@@ -218,11 +213,6 @@ void load_description_f1(ALLEGRO_DISPLAY *janela){
     while (close!=0) {
         // inicia os eventos atuais
         init_ev();
-
-        // Se houver clique no [X] ele registra o evento e para a execução do jogo
-        if (reg_ev && ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-            return;
-        }
 
         // Se for um evento do tipo clique, vê a posição do clique.
         if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
