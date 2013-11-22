@@ -10,8 +10,6 @@
 
 // libs implementadas
 #include "fases/fases.h"
-#include "fases/descricao/descricao.h"
-#include "geral/dialog.h"
 
 // Atributos da tela
 const int LARGURA_TELA = 800;
@@ -130,10 +128,8 @@ int main() {
                 // Desregistra os eventos de mouse (novos eventos serão criados)
                 al_unregister_event_source(interacao, al_get_mouse_event_source());
 
-                // Carrega primeira fase
-                load_description_f1(janela);
-                fase1_init();
-
+                // Inicializa o módulo que lida com as fases do jogo.
+                fases_init();
                 break;
             } else {
                 printf("\nEvento não suportado.");

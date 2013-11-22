@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
-#include <allegro5/allegro_font.h>
-#include <allegro5/allegro_ttf.h>
+#include "descricao.h"
 
 // variaveis estaticas que serão usados em descrição.c
 static ALLEGRO_FONT *font;
@@ -60,6 +54,7 @@ void limpar_matriz(char ***M, int x, int y) {
 }
 
 // carrega os textos do file e aloca dinâmicamente
+// TODO passar como parâmetro o file a ser carregado
 char ***load_file() {
     int n, i, j, k;
     char ***txt;
@@ -67,7 +62,7 @@ char ***load_file() {
 
     FILE *entrada = fopen("res/txt/textos.txt", "r");
     if(!entrada) {
-        printf("Falha ao carregar o arquivo de texto.\n");
+        fprintf(stderr, "Falha ao carregar o arquivo de texto.\n");
     }
 
     fscanf(entrada, "%d", &n);
@@ -80,7 +75,7 @@ char ***load_file() {
             for(k=0; k<34; k++) {
                 fscanf(entrada, "%c", &c);
                 
-                if(c=='*'){
+                if(c == '*'){
                     txt[i][j][k] = '\0';
                     break;
                 } else {
