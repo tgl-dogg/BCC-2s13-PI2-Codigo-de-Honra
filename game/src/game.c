@@ -17,7 +17,7 @@
 const int LARGURA_TELA = 800;
 const int ALTURA_TELA = 600;
     
-// Variável representando a janela principal
+// Variável global representando a janela principal
 ALLEGRO_DISPLAY *janela = NULL;
 
 int main() {
@@ -38,9 +38,9 @@ int main() {
     al_init();
     // Inicializa o add-on para utilização de imagens
     al_init_image_addon();
-    // inicializa a font_addon
+    // inicializa o add-on para fontes
     al_init_font_addon();
-    // inicializa a ttf_(True Type Font)_addon
+    // inicializa o add-on para fontes true-type
     al_init_ttf_addon(); 
     // Atribui em disp_data as configurações de tela
     al_get_display_mode(0, &disp_data);
@@ -71,7 +71,7 @@ int main() {
         return -1;
     }
 
-    // carrega a font a ser usada
+    // carrega a fonte a ser usada
     font_color = al_map_rgb(0, 0, 0);
     font = al_load_ttf_font("res/font/architectsdaughter.ttf", 60, 0);
     if (!font) {
@@ -96,7 +96,7 @@ int main() {
     // Criando interações do mouse
     interacao = al_create_event_queue();
     if (!interacao) {
-        fprintf(stderr, "Falha ao inicializar a interacao.\n");
+        fprintf(stderr, "Falha ao inicializar a interação de eventos.\n");
         al_destroy_display(janela);
         return -1;
     }
@@ -106,7 +106,7 @@ int main() {
     al_register_event_source(interacao, al_get_display_event_source(janela));
     
     while (1) {
-        // Passando parâmetros da função
+        // Espera até que um evento ocorra
         al_wait_for_event(interacao, &evento);
         
         // Se houver clique no [X] ele registra o evento e para a execução do jogo
@@ -116,13 +116,13 @@ int main() {
 
         // Se for um evento do tipo clique, vê a posição do clique.
         if (evento.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
-            // Clique no botão sair.
+            // Botão sair.
             if (evento.mouse.x >= 50 && evento.mouse.x <= al_get_bitmap_width(sair) + 50 &&
                 evento.mouse.y >= 450 && evento.mouse.y <= al_get_bitmap_height(sair) + 450) {
                 printf("\nParando a execução...");
                 break;
             } 
-            // Clique no botão jogar.
+            // Botão jogar.
             else if (evento.mouse.x >= 50  && evento.mouse.x <= al_get_bitmap_width(jogar) + 50 &&
                      evento.mouse.y >= 350  && evento.mouse.y <= al_get_bitmap_height(jogar) + 350) {
                 printf("\nCarregando a primeira fase...\n");
@@ -139,12 +139,6 @@ int main() {
                 printf("\nEvento não suportado.");
                 continue;
             }
-        }
-        else if (evento.type == ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY) {
-            printf("\nMouse saiu do display.");
-        }
-        else if (evento.type == ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY) {
-            printf("\nMouse entrou no display.");
         }
         // Atualiza a tela
         al_flip_display();            
