@@ -220,3 +220,51 @@ int validate_selection(int v1[], int v2[]) {
 
 	return i;
 }
+
+/* Inicializa a pilha de cartas. */
+void card_pile_init(card_pile *cp){
+    int i;
+    (*cp).f = 0;
+
+    for(i = 0; i < 15; i++){
+        (*cp).v[i] = -1;
+    }
+}
+
+/* Adiciona novo valor à pilha de cartas.
+Retorna 0 em erro ou 1 em sucesso. */
+int card_pull(card_pile *cp, int n){
+    // se estourar o vetor retorna erro.
+    if((*cp).f >= 15){
+        return 0;
+    }
+
+    // adiciona n ao vetor na posição final e incrementa o final.
+    (*cp).v[(*cp).f++] = n;
+    // retorna sucesso
+    return 1;
+}
+
+/* Remove o valor no topo da pilha de cartas.
+Retorna -1 em erro ou o valor em sucesso (valor sempre positivo). 
+*/
+int card_pop(card_pile *cp){
+    int i;
+    // verifica se a pilha não está vazia.
+    if((*cp).f == 0){
+        // retorna -1 porque é garantido que os valores do vetor v serão naturais.
+        return -1;
+    }
+
+    // armazena o valor no topo da pilha.
+    i = (*cp).v[(*cp).f];
+    // seta a posição que era topo para -1 e decrementa o topo.
+    (*cp).v[(*cp).f--] = -1;
+    // retorna o valor que era o topo da pilha.
+    return i;
+}
+
+/* Retorna quantas cartas tem na pilha. */
+int card_stack_count(card_pile *cp) {
+    return (*cp).f;
+}

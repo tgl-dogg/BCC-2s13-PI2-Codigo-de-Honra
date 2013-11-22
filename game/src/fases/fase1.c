@@ -12,8 +12,8 @@ void fase1_init(){
 	challenger_rule cr;	
 
 	cr.prog = 3;
-	cr.cond = 3;
-	cr.act = 3;
+	cr.cond = 4;
+	cr.act = 5;
 
 	for(i = 0; i < 15; i++){
 		cr.v[i] = -1;

@@ -24,6 +24,11 @@ typedef struct {
 	int v[15];
 } challenger_rule; 
 
+typedef struct {
+    int v[15];
+    int f;
+} card_pile;
+
 void draw_compile_card(ALLEGRO_BITMAP *imagem);
 void draw_memory_card(ALLEGRO_BITMAP *imagem);
 void draw_help_card(ALLEGRO_BITMAP *imagem);
@@ -40,5 +45,10 @@ int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags, challenger_rule cr);
 
 int validate_card_click(clk_flag *flags, int level, int card);
 int validate_selection(int v1[], int v2[]);
+
+void card_pile_init(card_pile *cp);
+int card_pull(card_pile *cp, int n);
+int card_pop(card_pile *cp);
+int card_stack_count(card_pile *cp);
 
 #endif
