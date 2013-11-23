@@ -46,6 +46,8 @@ int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags, challenger_rule cr);
 int validate_card_click(clk_flag *flags, int level, int card);
 int validate_selection(int v1[], int v2[]);
 
+void cr_init(challenger_rule *cr);
+
 void card_pile_init(card_pile *cp);
 int card_pull(card_pile *cp, int n);
 int card_pop(card_pile *cp);

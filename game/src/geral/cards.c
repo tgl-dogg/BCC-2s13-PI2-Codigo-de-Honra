@@ -208,6 +208,7 @@ Verifica se os dois vetores de cartas são iguais. Se iguais, retorna -1.
 Se diferentes, retorna o index onde começa a diferença entre eles.
 */
 int validate_selection(int v1[], int v2[]) {
+	// TODO realizar um break quando um dos dois for -1
 	int i;
 	int index = -1;
 
@@ -219,6 +220,20 @@ int validate_selection(int v1[], int v2[]) {
 	}
 
 	return i;
+}
+
+
+/* Inicializa a struct que controla os desafios. */
+void cr_init(challenger_rule *cr) {
+	int i;
+
+	(*cr).prog = 0;
+	(*cr).cond = 0;
+	(*cr).act = 0;
+
+	for(i = 0; i < 15; i++){
+		(*cr).v[i] = -1;
+	}
 }
 
 /* Inicializa a pilha de cartas. */
