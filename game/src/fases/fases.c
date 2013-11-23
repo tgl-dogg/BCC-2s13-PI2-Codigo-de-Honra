@@ -5,6 +5,7 @@
 extern ALLEGRO_DISPLAY *janela;
 
 // Declara as variáveis globais das cartas.
+ALLEGRO_BITMAP *im_set[12];
 ALLEGRO_BITMAP *im_prog_set[3];
 ALLEGRO_BITMAP *im_cond_set[4];
 ALLEGRO_BITMAP *im_act_set[5];
@@ -13,6 +14,7 @@ ALLEGRO_BITMAP *im_act_set[5];
 ALLEGRO_BITMAP *im_bg;
 
 // Botões.
+ALLEGRO_BITMAP *im_redo;  
 ALLEGRO_BITMAP *im_help;
 ALLEGRO_BITMAP *im_memory;
 ALLEGRO_BITMAP *im_compile;  

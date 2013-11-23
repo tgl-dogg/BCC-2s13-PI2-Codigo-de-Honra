@@ -20,11 +20,13 @@ extern ALLEGRO_DISPLAY *janela;
 extern ALLEGRO_BITMAP im_bg;
 
 // Botões
+extern ALLEGRO_BITMAP *im_redo;
 extern ALLEGRO_BITMAP im_help;
 extern ALLEGRO_BITMAP im_memory;
 extern ALLEGRO_BITMAP im_compile;
 
 // Cartas
+extern ALLEGRO_BITMAP *im_set[12];
 extern ALLEGRO_BITMAP *im_prog_set[5];
 extern ALLEGRO_BITMAP *im_cond_set[5];
 extern ALLEGRO_BITMAP *im_act_set[5];
