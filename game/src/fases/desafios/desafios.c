@@ -17,13 +17,13 @@ void execute_event(int ev_type, clk_flag flags, challenger_rule cr, card_pile *c
 extern ALLEGRO_DISPLAY *janela;
 
 // Background
-extern ALLEGRO_BITMAP im_bg;
+extern ALLEGRO_BITMAP *im_bg;
 
 // Botões
 extern ALLEGRO_BITMAP *im_redo;
-extern ALLEGRO_BITMAP im_help;
-extern ALLEGRO_BITMAP im_memory;
-extern ALLEGRO_BITMAP im_compile;
+extern ALLEGRO_BITMAP *im_help;
+extern ALLEGRO_BITMAP *im_memory;
+extern ALLEGRO_BITMAP *im_compile;
 
 // Cartas
 extern ALLEGRO_BITMAP *im_set[12];

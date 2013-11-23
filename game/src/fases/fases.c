@@ -1,5 +1,4 @@
 #include "fases.h"
-#include "descricao/descricao.h"
 
 // Pega a variável global da janela.
 extern ALLEGRO_DISPLAY *janela;
@@ -14,13 +13,14 @@ ALLEGRO_BITMAP *im_act_set[5];
 ALLEGRO_BITMAP *im_bg;
 
 // Botões.
-ALLEGRO_BITMAP *im_redo;  
+ALLEGRO_BITMAP *im_redo;
 ALLEGRO_BITMAP *im_help;
 ALLEGRO_BITMAP *im_memory;
 ALLEGRO_BITMAP *im_compile;  
 
 /* Inicialização das fases no geral. */
 void fases_init() {
+	char ***texto;
 	// Carrega na memória em partes, pegando apenas o que será utilizado em cada desafio.
     
    	// Botões (estarão em todas as fases, então já carrega de uma vez)
@@ -44,7 +44,8 @@ void fases_init() {
 
     // File
     // TODO load txt
-    load_description_f1(janela);
+    // texto = aloca_matriz();
+    // texto = 
     fase1_init();
 
     /* Fase 2 */
@@ -66,4 +67,6 @@ void fases_init() {
 
     // TODO load txt.
     fase3_init();
+
+    // TODO libera imagens e textos.
 }
