@@ -1,7 +1,7 @@
 #ifndef _FASES_H_
 #define _FASES_H_
 
-void fases_init();
+int fases_manager();
 
-void fase1_init();
+int fase1_init();
 #endif
