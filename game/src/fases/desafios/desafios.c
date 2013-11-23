@@ -43,14 +43,15 @@ int create_desafio(challenger_rule cr){
     ALLEGRO_EVENT ev_click;
 
     // Desenha os botões.
+    draw_undo_card(im_undo);
     draw_help_card(im_help);
     draw_memory_card(im_memory);
     draw_compile_card(im_compile);
 
     // Desenha as cartas.
-    draw_prog_cards(im_prog_set, cr);    
-    draw_conditional_cards(im_cond_set, cr);
-    draw_action_cards(im_act_set, cr);
+    // draw_prog_cards(im_prog_set, cr);    
+    // draw_conditional_cards(im_cond_set, cr);
+    // draw_action_cards(im_act_set, cr);
 
     al_flip_display();
 
@@ -170,12 +171,13 @@ void execute_event(int ev_type, clk_flag flags, challenger_rule cr, card_pile *c
         /* Carta de compilar. */
         case 6:
             // TODO melhorar esta validação
-            return validate_selection(cr.v, (*cp).v)
+            validate_selection(cr.v, (*cp).v);
+            //return;
             //GGWP return -1;
             //deubosta return indice da carta errada == 0;
             break;
 
-        /* Carta de reset. */
+        /* Carta de desfazer. */
         case 7:
             // Verifica se a pilha não está vazia e dá um pop nela.
             // TODO criar sub_bitmap para área de de cartas selecionadas para limpar as seleções erradas do usuário.
