@@ -37,6 +37,7 @@ int fases_manager() {
         Elimina a necessidade de telas de loading, pois o carregamento está sendo executado bem rapidamente. */
     
    	// Botões (estarão em todas as fases, então já carrega de uma vez).
+    im_undo = al_load_bitmap("res/img/gen/undo.png")
  	im_help = al_load_bitmap("res/img/gen/help.png");
 	im_memory = al_load_bitmap("res/img/gen/memory.png");
 	im_compile = al_load_bitmap("res/img/prog/compile_symbol.png");
