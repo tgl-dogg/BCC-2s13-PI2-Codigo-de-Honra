@@ -40,10 +40,10 @@
 #define COMP_H 128
 
 // Posição e tamanho do botão reset
-#define RES_X 20
-#define RES_Y 230
-#define RES_W 150
-#define RES_H 210
+#define UND_X 15
+#define UND_Y 230
+#define UND_W 64
+#define UND_H 64
 
 // Posição e tamanho para área de "cartas selecionadas"
 #define SLCT_X 570
@@ -76,6 +76,12 @@ void draw_cards(ALLEGRO_BITMAP *img[], int n, int x, int y){
 			x += BTN_MARGIN;
 		}
 	}
+}
+
+
+void draw_undo_card(ALLEGRO_BITMAP *imagem){
+	ALLEGRO_BITMAP *img[] = { imagem };
+	draw_cards(img, 1, UND_X, UND_Y);
 }
 
 void draw_compile_card(ALLEGRO_BITMAP *imagem){
@@ -194,7 +200,7 @@ int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags, challenger_rule cr){
 		return 5;
 	} else if (check_bounds(ev, COMP_X, COMP_Y, COMP_X+COMP_W, COMP_Y+COMP_H) == 1){
 		return 6;
-	} else if (check_bounds(ev, RES_X, RES_Y, RES_X+RES_W, RES_Y+RES_H) == 1){
+	} else if (check_bounds(ev, UND_X, UND_Y, UND_X+UND_W, UND_Y+UND_H) == 1){
 		return 7;
 	} else {
 		return 0;

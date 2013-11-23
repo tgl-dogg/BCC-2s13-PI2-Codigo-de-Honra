@@ -29,6 +29,7 @@ typedef struct {
     int f;
 } card_pile;
 
+void draw_undo_card(ALLEGRO_BITMAP *imagem);
 void draw_compile_card(ALLEGRO_BITMAP *imagem);
 void draw_memory_card(ALLEGRO_BITMAP *imagem);
 void draw_help_card(ALLEGRO_BITMAP *imagem);
