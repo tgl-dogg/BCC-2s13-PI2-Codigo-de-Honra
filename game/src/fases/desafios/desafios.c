@@ -13,20 +13,13 @@ void click_action_buttons(clk_flag flags, challenger_rule cr, card_pile *cp);
 
 void execute_event(int ev_type, clk_flag flags, challenger_rule cr, card_pile *cp);
 
-// Variável externa de janela
-extern ALLEGRO_DISPLAY *janela;
-
-// Background
-extern ALLEGRO_BITMAP *im_bg;
-
 // Botões
-extern ALLEGRO_BITMAP *im_redo;
+extern ALLEGRO_BITMAP *im_undo;
 extern ALLEGRO_BITMAP *im_help;
 extern ALLEGRO_BITMAP *im_memory;
 extern ALLEGRO_BITMAP *im_compile;
 
 // Cartas
-extern ALLEGRO_BITMAP *im_set[12];
 extern ALLEGRO_BITMAP *im_prog_set[5];
 extern ALLEGRO_BITMAP *im_cond_set[5];
 extern ALLEGRO_BITMAP *im_act_set[5];
@@ -48,9 +41,6 @@ int create_desafio(challenger_rule cr){
 
     // Evento para os novos cliques.
     ALLEGRO_EVENT ev_click;
-    
-    // Desenha o background.
-    al_draw_bitmap(im_bg, 0, 0, 0);
 
     // Desenha os botões.
     draw_help_card(im_help);
