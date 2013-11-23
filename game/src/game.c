@@ -130,7 +130,7 @@ int main() {
 
                 // Inicializa o módulo que lida com as fases do jogo.
                 fases_manager();
-                break;
+                //break;
             } else {
                 printf("\nEvento não suportado.");
                 continue;
