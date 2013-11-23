@@ -1,11 +1,5 @@
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
-#include <allegro5/allegro_font.h>
-#include <allegro5/allegro_ttf.h>
-
-#include "../geral/file_loader.h"
 #include "fases.h"
-
+#include "../geral/file_loader.h"
 
 void init_images();
 void destroy_images();
@@ -18,10 +12,14 @@ void destroy_text_bitmap();
 
 void free_resources();
 
-// Declara as variáveis globais das cartas.
+// Cartas.
 ALLEGRO_BITMAP *im_prog_set[5];
 ALLEGRO_BITMAP *im_cond_set[5];
 ALLEGRO_BITMAP *im_act_set[5];
+
+// Monstros.
+ALLEGRO_BITMAP *im_mon_set[5];
+ALLEGRO_BITMAP *im_boss;
 
 // Background.
 ALLEGRO_BITMAP *im_bg;
@@ -32,9 +30,8 @@ ALLEGRO_BITMAP *im_help;
 ALLEGRO_BITMAP *im_memory;
 ALLEGRO_BITMAP *im_compile;
 
-// Imagens da interação com textos.
-ALLEGRO_BITMAP *tutor;
-ALLEGRO_BITMAP *dialog;
+// Tutor.
+ALLEGRO_BITMAP *im_tutor;
 
 // Texto.
 ALLEGRO_FONT *font;
@@ -76,12 +73,12 @@ int fases_manager() {
 	im_compile = al_load_bitmap("res/img/prog/compile_symbol.png");
 
     // Imagens de interação com texto (também estarão em todas as fases).
-    tutor = al_load_bitmap("res/img/gen/tutor.png");
-    dialog = al_load_bitmap("res/img/gen/dialog.png");
+    im_tutor = al_load_bitmap("res/img/gen/tutor.png");
 
 	/* Fase 1 */
 	// Background.
-   	bg = al_load_bitmap("res/img/bg/bg_test.png");
+    // TODO adicionar background
+   	im_bg = al_load_bitmap("res/img/bg/bg_test.png");
 
    	// Cartas.
     im_prog_set[0] = al_load_bitmap("res/img/prog/direct_symbol.png");
@@ -92,6 +89,11 @@ int fases_manager() {
 
     im_act_set[0] = al_load_bitmap("res/img/act/atk.png");    
     im_act_set[1] = al_load_bitmap("res/img/act/def.png");
+
+    // Monstros.
+    im_mon_set[0] = al_load_bitmap("res/img/mon/wolf.png");
+    im_mon_set[1] = al_load_bitmap("res/img/mon/snake.png");
+    im_mon_set[2] = al_load_bitmap("res/img/mon/salamander.png");
 
     // Carrega os textos da fase 1.
     text = load_file("res/text/des_file1.txt", &text_counter);
@@ -111,10 +113,17 @@ int fases_manager() {
     }
 
     /* Fase 2 */
+    // Background.
+    // TODO adicionar background
+    im_bg = al_load_bitmap("res/img/bg/bg_test.png");
+
     // Cartas.
     im_prog_set[2] = al_load_bitmap("res/img/prog/while_symbol.png");
     im_cond_set[2] = al_load_bitmap("res/img/prog_condition/while_break.png");
     im_act_set[2] = al_load_bitmap("res/img/act/atk_double.png");
+
+    // Monstros.
+    im_mon_set[3] = al_load_bitmap("res/img/mon/sea_serpent.png");
 
     // Carrega os textos da fase 1.
     text = load_file("res/text/des_file2.txt", &text_counter);
@@ -134,11 +143,18 @@ int fases_manager() {
     }
 
     /* Fase 3 */
+    // Background.
+    // TODO adicionar background
+    im_bg = al_load_bitmap("res/img/bg/bg_test.png");
+    
     // Cartas.
     im_cond_set[3] = al_load_bitmap("res/img/prog_condition/array_symbol.png");
 	
     im_act_set[3] = al_load_bitmap("res/img/act/grab.png");
     im_act_set[4] = al_load_bitmap("res/img/act/array_item.png");
+
+    // Monstros.
+    im_mon_set[3] = al_load_bitmap("res/img/mon/mini_ghost.png");
 
     // Carrega os textos da fase 3.
     text = load_file("res/text/des_file3.txt", &text_counter);
@@ -173,13 +189,15 @@ void init_images() {
     im_memory = NULL
     im_compile = NULL;
 
-    tutor = NULL;
-    dialog = NULL;
+    im_tutor = NULL;
+    im_boss = NULL;
 
     for (i = 0; i < 5; i++) {
         im_prog_set[i] = NULL;
         im_cond_set[i] = NULL;
         im_act_set[i] = NULL;
+
+        im_mon_set[i] = NULL;
     }
 }
 
@@ -195,13 +213,15 @@ void destroy_images() {
     al_destroy_bitmap(im_memory);
     al_destroy_bitmap(im_compile);
 
-    al_destroy_bitmap(tutor);
-    al_destroy_bitmap(dialog);
+    al_destroy_bitmap(im_tutor);
+    al_destroy_bitmap(im_boss);
 
     for (i = 0; i < 5; i++) {
         al_destroy_bitmap(im_prog_set[i]);
         al_destroy_bitmap(im_cond_set[i]);
         al_destroy_bitmap(im_act_set[i]);
+
+        al_destroy_bitmap(im_mon_set[i]);
     }
 }
 
