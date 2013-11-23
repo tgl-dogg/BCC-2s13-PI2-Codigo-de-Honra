@@ -4,9 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char ***alloc_tri_matrix (int x, int y, int z);
-void free_text (char ***M, int x, int y);
+char ***alloc_tri_matrix(int x, int y, int z);
+void free_tri_matrix(char ***M, int x, int y);
+char ***load_file(const char *path, int *n);
 
-void limpa (FILE *entrada, char t);
-char ***load_file (const char *path);
 #endif
