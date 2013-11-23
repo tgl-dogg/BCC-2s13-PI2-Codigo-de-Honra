@@ -9,15 +9,6 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
 
-void init_ev();
-
-char ***load_file();
-char ***matriz_tri(int x, int y, int z);
-
-void limpa(FILE *entrada);
-void limpar_matriz(char ***M, int x, int y);
-
-void draw_text(ALLEGRO_FONT *font, ALLEGRO_COLOR font_color, char ***txt, int n);
-void load_description_f1(ALLEGRO_DISPLAY *janela);
+void draw_text(char ***txt, int n, ALLEGRO_BITMAP *speaker);
 
 #endif
