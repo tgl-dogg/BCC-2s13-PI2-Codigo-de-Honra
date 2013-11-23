@@ -1,37 +1,37 @@
 4
-frase1*
-frase2*
-frase3*
-frase4*
-frase5*
-frase6*
-frase7*
-frase8*
-frase9*
-fala1*
-fala2*
-fala3*
-fala4*
-fala5*
-fala6*
-fala7*
-fala8*
-fala9*
-texto1*
-texto2*
-texto3*
-texto4*
-texto5*
-texto6*
-texto7*
-texto8*
-texto9*
-descrição1*
-descrição2*
-descrição3*
-descrição4*
-descrição5*
-descrição6*
-descrição7*
-descrição8*
-descrição9*
+O jogo consiste em utilizar as*
+cartas para vencer os desafios.*
+*
+Veja abaixo que você já possui*
+duas cartas, uma à esquerda e*
+outra à direita.*
+A da esquerda significa que você*
+utilizará uma ação direta, e a da*
+direita é uma ação de ataque.*                //EOT
+Quando quiser fazer uma ação*
+direta no jogo, utilize a carta*
+da esquerda e em seguida, a ação*
+que deseja executar.*
+*
+Para utilizar as cartas, basta*
+clicar nelas uma vez.*
+*
+Vamos para um desafio!*						//EOT
+Desafio:*
+Derrotar o lobo a seguir.*
+*
+Faça um ataque direto ao lobo.*
+*
+Clique para iniciar o desafio.*
+*
+(para desfazer uma seleção,*
+clique na seta ao lado)*					//EOT
+Muito bem! Você acabou de fazer*
+uma instrução direta. Elas são*
+muito boas em certas situações,*
+mas às vezes é preciso tomar*
+decisões no código, é, digo,*
+nas batalhas.*
+*
+Você acaba de ganhar a carta de*
+tomada de decisão!*

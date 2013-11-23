@@ -12,6 +12,8 @@ void destroy_text_bitmap();
 
 void free_resources();
 
+extern ALLEGRO_DISPLAY *janela;
+
 // Cartas.
 ALLEGRO_BITMAP *im_prog_set[5];
 ALLEGRO_BITMAP *im_cond_set[5];
@@ -67,7 +69,7 @@ int fases_manager() {
         Elimina a necessidade de telas de loading, pois o carregamento está sendo executado bem rapidamente. */
     
    	// Botões (estarão em todas as fases, então já carrega de uma vez).
-    im_undo = al_load_bitmap("res/img/gen/undo.png")
+    im_undo = al_load_bitmap("res/img/gen/undo.png");
  	im_help = al_load_bitmap("res/img/gen/help.png");
 	im_memory = al_load_bitmap("res/img/gen/memory.png");
 	im_compile = al_load_bitmap("res/img/prog/compile_symbol.png");
@@ -111,6 +113,8 @@ int fases_manager() {
         free_resources();
         return fase_result;
     }
+
+    return 1;
 
     /* Fase 2 */
     // Background.
@@ -186,7 +190,7 @@ void init_images() {
 
     im_undo = NULL;
     im_help = NULL;
-    im_memory = NULL
+    im_memory = NULL;
     im_compile = NULL;
 
     im_tutor = NULL;
@@ -249,7 +253,7 @@ int init_text_bitmap() {
     original_pos = al_get_target_bitmap();
 
     // Cria um sub_bitmap para desenhar os textos.
-    text_pos = al_create_sub_bitmap(al_get_backbuffer(janela), 150, 50, 350, 210);
+    text_pos = al_create_sub_bitmap(al_get_backbuffer(janela), 100, 15, 400, 210);
 
     if (text_pos == NULL || original_pos == NULL) {
         fprintf(stderr, "Falha ao criar os subs bitmaps!\n");
@@ -260,7 +264,7 @@ int init_text_bitmap() {
 }
 
 void destroy_text_bitmap() {
-    al_destroy_bitmap(post_txt);
+    al_destroy_bitmap(text_pos);
     al_destroy_bitmap(original_pos);
 }
 

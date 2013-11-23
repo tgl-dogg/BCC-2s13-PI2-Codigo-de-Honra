@@ -52,7 +52,7 @@ void draw_text(char ***txt, int n, ALLEGRO_BITMAP *speaker){
 
         if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
             // Clique dentro da tela do jogo já é válido.
-            if (evento.mouse.x >= 0 && evento.mouse.x <= 800 && evento.mouse.y >= 0 && evento.mouse.y <= 600) {
+            if (ev.mouse.x >= 0 && ev.mouse.x <= 800 && ev.mouse.y >= 0 && ev.mouse.y <= 600) {
                 // Fim da execução do texto.
                 return; 
             } 
