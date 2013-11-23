@@ -1,6 +1,23 @@
 #include "file_loader.h"
 
 
+/* Aloca uma matriz tridimensional de char. */
+char ***alloc_tri_matrix (int x, int y, int z) {
+    char ***M;
+    int i, j;
+
+    M = malloc(x * sizeof(char**));
+    
+    for(i = 0; i < x; i++) {
+        M[i] = malloc(y * sizeof(char*));
+        
+        for(j = 0; j < y; j++) {
+            M[i][j] = malloc(z * sizeof(char));
+        }
+    }
+    return M;
+}
+
 /* limpa a entrada até encontrar o caracter t. */
 void limpa (FILE *entrada, char t) {
     char c;
@@ -28,7 +45,7 @@ char ***load_file (const char *path) {
     limpa(entrada, '\n');
     
     // Aloca os textos de estrutura fixa (n x 9 x 34).
-    txt = matriz_tri(n, 9, 34);
+    txt = alloc_tri_matrix(n, 9, 34);
     
     for(i = 0; i < n; i++) {
         for(j = 0; j < 9; j++) {

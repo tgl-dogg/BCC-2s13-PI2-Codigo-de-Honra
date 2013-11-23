@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char ***alloc_text (int x, int y, int z);
+char ***alloc_tri_matrix (int x, int y, int z);
 void free_text (char ***M, int x, int y);
 
 void limpa (FILE *entrada, char t);
