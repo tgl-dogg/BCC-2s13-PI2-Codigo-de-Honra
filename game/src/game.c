@@ -129,7 +129,7 @@ int main() {
                 al_unregister_event_source(interacao, al_get_mouse_event_source());
 
                 // Inicializa o módulo que lida com as fases do jogo.
-                fases_init();
+                fases_manager();
                 break;
             } else {
                 printf("\nEvento não suportado.");
