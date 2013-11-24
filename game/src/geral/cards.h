@@ -34,16 +34,17 @@ typedef enum { DIRECT=0, IF=1, WHILE=2 } prog_card_t;
 typedef enum { IF_COND=1000, IF_ELSE=1001, WHILE_BREAK=1002, ARRAY=1003 } cond_card_t;
 typedef enum { ATK=2000, DEF=2001, ATK_DOUBLE=2002, ARRAY_GRAB=2003, ARRAY_USE=2004 } act_card_t;
 
-void draw_undo_card(ALLEGRO_BITMAP *imagem);
-void draw_compile_card(ALLEGRO_BITMAP *imagem);
-void draw_memory_card(ALLEGRO_BITMAP *imagem);
-void draw_help_card(ALLEGRO_BITMAP *imagem);
+void draw_undo_card();
+void draw_help_card();
+void draw_memory_card();
+void draw_compile_card();
 
-void draw_prog_cards(ALLEGRO_BITMAP *img[], challenger_rule cr);
-void draw_conditional_cards(ALLEGRO_BITMAP *img[], challenger_rule cr);
-void draw_action_cards(ALLEGRO_BITMAP *img[], challenger_rule cr);
+void draw_prog_cards(challenger_rule cr);
+void draw_conditional_cards(challenger_rule cr);
+void draw_action_cards(challenger_rule cr);
 
-void draw_selected_cards(ALLEGRO_BITMAP *imagem, int i);
+void draw_selected_card(int index, int count);
+void redraw_selected_cards(card_pile cp);
 
 int check_bounds(ALLEGRO_EVENT ev, int left, int top, int right, int bottom);
 int check_cards_bounds(ALLEGRO_EVENT ev, int left, int top, int right, int bottom, clk_flag *flags, int level);
@@ -57,6 +58,7 @@ void cr_init(challenger_rule *cr);
 void card_pile_init(card_pile *cp);
 int card_pull(card_pile *cp, int n);
 int card_pop(card_pile *cp);
-int card_stack_count(card_pile *cp);
+int card_stack_count(card_pile cp);
+void card_pile_to_array(card_pile cp, int v[]);
 
 #endif
