@@ -17,7 +17,7 @@ Para utilizar as cartas, basta*
 clicar nelas uma vez.*
 *
 Vamos para um desafio!*						//EOT
-Desafio:*									//Texto 2
+Desafio:*									//Texto 2	//Desafio
 Derrotar o lobo a seguir.*
 *
 Faça um ataque direto ao lobo.*
@@ -53,7 +53,7 @@ você deve escolher uma opção. *
 Após isso, basta selecionar outra*
 carta e esta será jogada apenas SE*
 a condição for verdadeira.*					//EOT
-Desafio:*									//Texto 6
+Desafio:*									//Texto 6	//Desafio
 Derrotar a cobra a seguir.*
 *
 Cobras são venenosas, atente-se!*
@@ -80,7 +80,7 @@ você pode utilizar a carta SENÃO*
 para caso sua condição falhe.*
 É uma ótima maneira de evitar*
 certos problemas...*						//EOT
-Desafio:*									//Texto 9
+Desafio:*									//Texto 9	//Desafio
 Derrotar a salamandra de fogo!*
 *
 Salamandras são muito nocivas.*
@@ -107,7 +107,7 @@ um par de olhos furiosos abaixo*
 de dois pontudos chifres.*
 *
 É um minotauro.*							//EOT
-Desafio: derrotar o minotauro.*				//Texto 12
+Desafio: derrotar o minotauro.*				//Texto 12	//Desafio
 *
 Minotauros são muito fortes!*
 Ataque apenas SE ele estiver*
