@@ -1,37 +1,70 @@
-4
-frase1*
-frase2*
-frase3*
-frase4*
-frase5*
-frase6*
-frase7*
-frase8*
-frase9*
-fala1*
-fala2*
-fala3*
-fala4*
-fala5*
-fala6*
-fala7*
-fala8*
-fala9*
-texto1*
-texto2*
-texto3*
-texto4*
-texto5*
-texto6*
-texto7*
-texto8*
-texto9*
-descrição1*
-descrição2*
-descrição3*
-descrição4*
-descrição5*
-descrição6*
-descrição7*
-descrição8*
-descrição9*
+x
+123456789 123456789 123456789 1234
+O seu desafio final é derrotar o*
+fantasma que mora neste castelo.*
+*
+Mas antes você deve coletar umas*
+poções de umas gosminhas que*
+vivem lá dentro.*
+*
+Posso ajudar na coleta, mas você*
+enfrentará o fantasma sozinho.*
+
+
+123456789 123456789 123456789 1234
+Para coletar os itens, vou lhe*
+dar mais algumas cartas.*
+*
+Esta nova carta do meio é a carta*
+de vetores (array). Antes de usar*
+você deve jogar a carta de loop e*
+não usar a carta de interrogação.*
+*
+*
+
+123456789 123456789 123456789 1234
+A carta de vetores serve como um*
+armazém de itens, que você usará*
+para coletar as poções das gosmas*
+que vivem no castelo.
+*
+Sendo assim a combinação de loop*
+com array irá executar uma ação*
+PARA cada item armazenado.*
+*
+
+123456789 123456789 123456789 1234
+Estas ações são definidas pelas*
+duas outras cartas que vou lhe*
+entregar: a carta de coletar e*
+a carta de utilizar. *
+*
+Com a coleta, junte poções das*
+gosminhas rastejantes e use-as*
+quando encontrar o fantasma.*
+Conto com você!*
+
+
+123456789 123456789 123456789 1234
+Você entra no castelo e se depara*
+com um longo corredor, que é seu*
+único caminho. Seguindo em frente*
+eis que surge a primeira gosma*
+rastejante do castelo.*
+*
+Ela parece hostil, será preciso*
+derrotá-la para coletar as poções*
+*
+
+
+
+123456789 123456789 123456789 1234
+Desafio: derrotar a gosminha e*
+coletar as poções dela.*
+*
+Gosminhas rastejantes são fracas,*
+um ataque direto pode resolver o*
+problema.*
+*
+Não esqueça de coletar as poções.
+*
