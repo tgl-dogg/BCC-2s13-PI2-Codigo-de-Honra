@@ -38,12 +38,22 @@ Estas ações são definidas pelas*
 duas outras cartas que vou lhe*
 entregar: a carta de coletar e*
 a carta de utilizar. *
-*
 Com a coleta, junte poções das*
 gosminhas rastejantes e use-as*
 quando encontrar o fantasma.*
-Conto com você!*
+Não se esqueça de usar o break*
+após coletar ou utilizar o array.*
 
+123456789 123456789 123456789 1234
+*
+*
+*
+*
+Conto com você!*
+*
+*
+*
+*
 
 123456789 123456789 123456789 1234
 Você entra no castelo e se depara*
@@ -64,5 +74,82 @@ Gosminhas rastejantes são fracas,*
 um ataque direto pode resolver o*
 problema.*
 *
-Não esqueça de coletar as poções.
+Não esqueça de coletar as poções.*
 *
+
+123456789 123456789 123456789 1234
+Derrotar a gosminha foi uma*
+tarefa simples.*
+Você chega ao fim do corredor e*
+encontra uma porta, a qual abre*
+com bastante cautela.*
+*
+Dentro dela há mais duas gosmas*
+juntas, é a sua chance de coletar*
+todas as poções necessárias!*
+
+123456789 123456789 123456789 1234
+Desafio: derrotar as gosminhas e*
+coletar as poções delas.*
+*
+Gosminhas rastejantes são fracas,*
+mas estão em duas. Se atacar uma*
+só, a outra pode fugir, então dê.*
+um jeito de atacar as duas com um*
+golpe só.*
+Não esqueça de coletar as poções.*
+
+123456789 123456789 123456789 1234
+Com o seu array de poções cheio,*
+você entra na sala seguinte e*
+procura pelo fantasma do castelo.*
+*
+Aos poucos, começa a ouvir sons*
+estranhos vindos de uma outra*
+porta do outro lado desta sala*
+e resolve então verificar.*
+*
+
+123456789 123456789 123456789 1234
+Com o seu array de poções cheio,*
+você entra na sala seguinte e*
+procura pelo fantasma do castelo.*
+*
+Aos poucos, começa a ouvir sons*
+estranhos vindos de uma outra*
+porta do outro lado desta sala*
+e resolve então verificar.*
+*
+
+123456789 123456789 123456789 1234
+Os sons ficam mais altos conforme*
+se aproximam e logo você está de*
+frente para a porta, que se abre*
+sozinha.*
+*
+Dentro é apenas um armário de*
+ferramentas vazio, então você.*
+dá meia volta para andar e.*
+acaba trombando com o fantasma*
+
+123456789 123456789 123456789 1234
+Desafio: derrotar o fantasma*
+*
+Fantasmas são imunes a ataques*
+físicos, mas com a combinação*
+certa de poções eles podem ficar*
+vulneráveis.*
+Utilize todas as poções que tiver*
+e, depois disso, ENQUANTO estiver*
+vulnerável, faça seus ataques.*
+
+123456789 123456789 123456789 1234
+As poções funcionaram e você*
+passou no desafio final!*
+*
+Saindo do castelo você encontra*
+seu tutor, que te parabeniza e*
+lhe entrega a permissão para*
+participar da arena.*
+*
+Que comecem os jogos!*
