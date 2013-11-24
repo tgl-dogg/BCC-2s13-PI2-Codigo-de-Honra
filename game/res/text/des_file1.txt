@@ -1,4 +1,4 @@
-4
+x
 O jogo consiste em utilizar as*
 cartas para vencer os desafios.*
 *
@@ -35,3 +35,113 @@ nas batalhas.*
 *
 Você acaba de ganhar a carta de*
 tomada de decisão!*
+
+123456789 123456789 123456789 1234
+A carta de tomada de decisão*
+vai ajudar a pensar em certos*
+desafios. *
+*
+Quando clicar nela, deverá*
+definir uma condição que,*
+se for verdadeira, irá *
+executar a carta que vier*
+em seguida.*								//EOT
+
+123456789 123456789 123456789 1234
+Para definir a condição, clique*
+na carta e em seguida utilize a*
+carta de interrogação no centro*
+da tela. Um diálogo aparecerá, e*
+você deve escolher uma opção. *
+*
+Após isso, basta selecionar outra*
+carta e esta será jogada apenas SE*
+a condição for verdadeira.*					//EOT
+
+123456789 123456789 123456789 1234
+Desafio:*
+Derrotar a cobra a seguir.*
+*
+Cobras são venenosas, atente-se!*
+Ataque apenas SE ela estiver*
+destraída.*
+*
+(utilize uma condição para isso)*
+*
+
+123456789 123456789 123456789 1234
+Excelente! Você entendeu a carta*
+condicional! Como prêmio, ganhará*
+mais duas cartas: defesa (ação)*
+e a carta especial "SENÃO".*
+*
+A carta defesa lhe auxiliará*
+contra inimigos mais nocivos, e*
+será de muita importância daqui*
+para frente.*
+
+123456789 123456789 123456789 1234
+A outra carta especial deve ser*
+utilizada junto com a condição.*
+Você ainda utilizará a carta do*
+SE normalmente, porém, após *
+definir a condição e a ação,*
+você pode utilizar a carta SENÃO*
+para caso sua condição falhe.*
+É uma ótima maneira de evitar*
+certos problemas...*
+
+123456789 123456789 123456789 1234
+Desafio:*
+Derrotar a salamandra de fogo!*
+*
+Salamandras são muito nocivas.*
+SE ela estiver pegando fogo, é*
+melhor pegar seu escudo.*
+SENÃO, é sua chance de atacar!*
+*
+*
+
+123456789 123456789 123456789 1234
+Muito bom! Você já é quase um*
+mestre das cartas!*
+Acho que vou te levar para uma*
+outra área de treinamento.*
+*
+Espere aqui um segundo enquanto*
+eu faço os preparativos, tenho*
+que avisar o pessoal da academia*
+que temos um novo guerreiro!*
+
+123456789 123456789 123456789 1234
+Enquanto o tutor está resolvendo*
+suas pendências, você resolve*
+andar pela floresta olhando a*
+fauna e flora local. De repente,*
+em meio aos arbustos, você vê*
+um par de olhos furiosos abaixo*
+de dois pontudos chifres.*
+*
+É um minotauro.*
+
+123456789 123456789 123456789 1234
+Desafio: derrotar o minotauro.*
+*
+Minotauros são muito fortes!*
+Ataque apenas SE ele estiver*
+vulnerável, SENÃO é melhor*
+se defender de seus chifres...*
+*
+*
+*
+
+123456789 123456789 123456789 1234
+Não acredito, você derrotou um*
+minotauro sozinho! Incrível!*
+*
+Venha, vamos rápido, temos que*
+chegar até o castelo para que*
+você faça um teste e consiga*
+autorização para participar*
+do torneio. Acredito que ir pelo*
+pântano será mais rápido...*
