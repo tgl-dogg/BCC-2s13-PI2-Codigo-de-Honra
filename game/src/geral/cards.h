@@ -29,6 +29,11 @@ typedef struct {
     int f;
 } card_pile;
 
+// Index das cartas.
+typedef enum { DIRECT=0, IF=1, WHILE=2 } prog_card_t;
+typedef enum { IF_COND=1000, IF_ELSE=1001, WHILE_BREAK=1002, ARRAY=1003 } cond_card_t;
+typedef enum { ATK=2000, DEF=2001, ATK_DOUBLE=2002, ARRAY_GRAB=2003, ARRAY_USE=2004 } act_card_t;
+
 void draw_undo_card(ALLEGRO_BITMAP *imagem);
 void draw_compile_card(ALLEGRO_BITMAP *imagem);
 void draw_memory_card(ALLEGRO_BITMAP *imagem);

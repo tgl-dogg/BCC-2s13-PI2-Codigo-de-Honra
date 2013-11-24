@@ -54,6 +54,11 @@
 // Espaçamento entre os botões
 #define BTN_MARGIN 70
 
+// Index das cartas.
+typedef enum { DIRECT=0, IF=1, WHILE=2 } prog_card_t;
+typedef enum { IF_COND=1000, IF_ELSE=1001, WHILE_BREAK=1002, ARRAY=1003 } cond_card_t;
+typedef enum { ATK=2000, DEF=2001, ATK_DOUBLE=2002, ARRAY_GRAB=2003, ARRAY_USE=2004 } act_card_t;
+
 void draw_cards(ALLEGRO_BITMAP *img[], int n, int x, int y){
 	int i = 0;
 	int start_x = x;
