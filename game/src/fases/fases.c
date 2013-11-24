@@ -97,6 +97,8 @@ int fases_manager() {
     im_mon_set[1] = al_load_bitmap("res/img/mon/snake.png");
     im_mon_set[2] = al_load_bitmap("res/img/mon/salamander.png");
 
+    im_boss = al_load_bitmap("res/img/boss/minotaur.png");
+
     // Carrega os textos da fase 1.
     text = load_file("res/text/des_file1.txt", &text_counter);
 
@@ -129,6 +131,8 @@ int fases_manager() {
     // Monstros.
     im_mon_set[3] = al_load_bitmap("res/img/mon/sea_serpent.png");
 
+    im_boss = al_load_bitmap("res/img/boss/hydra.png");
+
     // Carrega os textos da fase 1.
     text = load_file("res/text/des_file2.txt", &text_counter);
 
@@ -159,6 +163,8 @@ int fases_manager() {
 
     // Monstros.
     im_mon_set[3] = al_load_bitmap("res/img/mon/mini_ghost.png");
+
+    im_boss = al_load_bitmap("res/img/boss/ghost.png");
 
     // Carrega os textos da fase 3.
     text = load_file("res/text/des_file3.txt", &text_counter);

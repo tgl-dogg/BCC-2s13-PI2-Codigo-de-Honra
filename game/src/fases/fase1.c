@@ -27,6 +27,8 @@ extern char ***text;
 int fase1_init() {
 	// Guarda qual texto do file queremos utilizar;
 	int text_pos;
+	// Aloca os desafios desta fase.
+	int v[4][15];
 
 	// Cor para limpar a tela
 	ALLEGRO_COLOR clean_color;
@@ -95,4 +97,23 @@ int fase1_init() {
     al_flip_display();
 
     return 0;
+}
+
+void desafio_lobo(int v[]) {
+	int i;
+
+	v[0] = 0;
+	v[1] = 
+}
+
+void desafio_cobra(int v[]) {
+
+}
+
+void desafio_salamandra(int v[]) {
+
+}
+
+void desafio_minotauro(int v[]) {
+
 }
