@@ -1,37 +1,138 @@
-4
-frase1*
-frase2*
-frase3*
-frase4*
-frase5*
-frase6*
-frase7*
-frase8*
-frase9*
-fala1*
-fala2*
-fala3*
-fala4*
-fala5*
-fala6*
-fala7*
-fala8*
-fala9*
-texto1*
-texto2*
-texto3*
-texto4*
-texto5*
-texto6*
-texto7*
-texto8*
-texto9*
-descrição1*
-descrição2*
-descrição3*
-descrição4*
-descrição5*
-descrição6*
-descrição7*
-descrição8*
-descrição9*
+123456789 123456789 123456789 1234
+Este é o pântano que liga o nosso*
+acampamento até o castelo onde*
+será seu desafio de admissão.*
+*
+Como seu desempenho tem sido*
+muito bom, vou lhe dar uma carta*
+de bônus: o ataque duplo!*
+*
+*
+
+123456789 123456789 123456789 1234
+O ataque duplo é bastante útil*
+contra inimigos que possuem*
+habilidades especiais, mas é*
+preciso tomar cuidado: usar o*
+ataque duplo em criaturas normais*
+pode fazer você se machucar!*
+*
+Utilize o ataque duplo apenas em*
+situações especiais.*
+
+
+
+123456789 123456789 123456789 1234
+Bom, chegamos até o lago. Basta*
+atravessar aqui e estaremos lá.*
+*
+Espere um minuto, tem algo se*
+movimentando na água...*
+*
+É uma serpente marinha!*
+Proteja-se!*
+*
+
+
+123456789 123456789 123456789 1234
+Desafio: derrotar a serpente*
+*
+Serpentes marinhas se escondem no*
+mar para evitar ataques.*
+SE ela estiver escondida, utilize*
+o ataque duplo para atingi-la.*
+SENÃO, utilize um ataque simples.*
+*
+Tenha cuidado!*
+
+
+
+123456789 123456789 123456789 1234
+Uau, você realmente deu um jeito*
+naquela serpente marinha! Vamos*
+seguir nosso caminho então...*
+*
+Espere outro minuto, tem outra*
+coisa surgindo da água... é*
+outra serpente! Parece que o*
+lago está cheio delas!*
+*
+
+123456789 123456789 123456789 1234
+Desafio: derrotar outra serpente*
+*
+Serpentes marinhas se escondem no*
+mar para evitar ataques.*
+SE ela estiver escondida, utilize*
+o ataque duplo para atingi-la.*
+SENÃO, utilize um ataque simples.*
+*
+*
+
+123456789 123456789 123456789 1234
+Realmente, estas serpentes são*
+perigosas. Acho que você merece*
+mais cartas por esta atuação.*
+Estava guardando para depois*
+do pântano, mas você já pode*
+ficar com elas: carta de*
+repetição (loop) e carta de*
+fim de repetição (break).*
+*
+
+123456789 123456789 123456789 1234
+Utilizar a carta de loop será bem*
+fácil para você. Quando clicar na*
+carta, deverá usar a carta de*
+interrogação, para definir a*
+condição de repetição. Todas as*
+ações a seguir serão executadas*
+ENQUANTO a condição definida for*
+verdadeira.*
+*
+
+123456789 123456789 123456789 1234
+Já a carta de break deve ser*
+usada para indicar o fim da carta*
+de loop. Nunca se esqueça de*
+terminar as suas repetições com*
+esta carta!*
+Com isso, tudo que estiver*
+entre as cartas de loop,*
+interrogação e break será feito*
+repetidamente conforme o desafio.*
+
+123456789 123456789 123456789 1234
+Já consigo ver a ponte que leva*
+ao castelo, estamos quase lá!*
+*
+Essa não, parece que tem outra*
+serpente marinha na água! Oh, são*
+duas! Não, três!*
+*
+Pior que isso: é uma hydra, a*
+besta de várias cabeças!*
+
+123456789 123456789 123456789 1234
+Desafio: derrotar a hydra.*
+Hydras são poderossíssimas e*
+conseguem regenerar algumas 
+de suas cabeças cortadas.*
+ENQUANTO a hydra possuir cabeças,*
+defenda-se SE ela estiver fazendo*
+algum ataque, SENÃO, faça um*
+ataque duplo para eliminar mais*
+cabeças com um ataque só.*
+
+
+
+123456789 123456789 123456789 1234
+Você derrotou uma hydra sozinho,*
+isto é impressionante!*
+*
+Vamos rápido terminar o seu teste*
+de admissão, você tem que jogar*
+em nosso desafio da arena!*
+*
+Vocês andam mais um pouco e estão*
+de frente para um castelo.*
