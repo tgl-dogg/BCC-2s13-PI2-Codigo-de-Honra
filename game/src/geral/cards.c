@@ -132,7 +132,11 @@ void draw_selected_card(int index, int count) {
 		return;
 	}
 
-	if(index >= 2000) {
+	if (index >= 10000) {
+		index = 1000;
+	} 
+
+	if (index >= 2000) {
 		index -= 2000;
 		img[0] = im_act_set[index];
 	} else if (index >= 1000 && index < 2000) {
@@ -275,6 +279,14 @@ int validate_selection(int v1[], int v2[]) {
 	return (i * -1);
 }
 
+/* Inicializa um vetor de inteiros de 15 posições com -1. */
+void inicializa_vetor(int v[]) {
+	int i;
+	for(i = 0; i < 15; i++) {
+		v[i] = -1;
+	}
+}
+
 /* Inicializa a struct que controla os desafios. */
 void cr_init(challenger_rule *cr) {
 	int i;
@@ -283,19 +295,25 @@ void cr_init(challenger_rule *cr) {
 	(*cr).cond = 0;
 	(*cr).act = 0;
 
-	for(i = 0; i < 15; i++) {
-		(*cr).v[i] = -1;
-	}
+	inicializa_vetor((*cr).v);
 }
 
+/* Transfere os valores de um desafio para a struct de regra de desafio. */
+void transferir_desafio(challenger_rule *cr, int v[]) {
+	int i;
+
+	// Atribui os conteúdos dos ponteiros
+	// É seguro pois os vetores serão alterados apenas depois de serem utilizados.
+	for(i = 0; i < 15; i++){
+		(*cr).v[i] = v[i];	
+	}
+}
 /* Inicializa a pilha de cartas. */
 void card_pile_init(card_pile *cp) {
     int i;
     (*cp).f = 0;
 
-    for(i = 0; i < 15; i++) {
-        (*cp).v[i] = -1;
-    }
+    inicializa_vetor((*cp).v);
 }
 
 /* Adiciona novo valor à pilha de cartas.

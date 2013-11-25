@@ -31,7 +31,7 @@ typedef struct {
 
 // Index das cartas.
 typedef enum { DIRECT=0, IF=1, WHILE=2 } prog_card_t;
-typedef enum { IF_COND=1000, IF_ELSE=1001, WHILE_BREAK=1002, ARRAY=1003 } cond_card_t;
+typedef enum { COND=1000, IF_ELSE=1001, WHILE_BREAK=1002, ARRAY=1003 } cond_card_t;
 typedef enum { ATK=2000, DEF=2001, ATK_DOUBLE=2002, ARRAY_GRAB=2003, ARRAY_USE=2004 } act_card_t;
 
 void draw_undo_card();
@@ -53,6 +53,8 @@ int detect_click_pos(ALLEGRO_EVENT ev, clk_flag *flags, challenger_rule cr);
 int validate_card_click(clk_flag *flags, int level, int card);
 int validate_selection(int v1[], int v2[]);
 
+void inicializa_vetor(int v[]);
+void transferir_desafio(challenger_rule *cr, int v[]);
 void cr_init(challenger_rule *cr);
 
 void card_pile_init(card_pile *cp);

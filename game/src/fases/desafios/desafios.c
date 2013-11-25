@@ -5,6 +5,11 @@
 
 #include "desafios.h"
 #include "../../geral/cards.h"
+#include "../../geral/dialog.h"
+
+// Condições.
+extern char *cond;
+extern char *cond_buttons;
 
 void click_prog_buttons(clk_flag flags, challenger_rule cr, card_pile *cp);
 void click_condition_buttons(clk_flag flags, challenger_rule cr, card_pile *cp);
@@ -33,11 +38,6 @@ int create_desafio(challenger_rule cr) {
     draw_help_card();
     draw_memory_card();
     draw_compile_card();
-
-    // Desenha as cartas.
-    // draw_prog_cards(im_prog_set, cr);    
-    // draw_conditional_cards(im_cond_set, cr);
-    // draw_action_cards(im_act_set, cr);
 
     al_flip_display();
 
@@ -96,16 +96,30 @@ void click_prog_buttons(clk_flag flags, challenger_rule cr, card_pile *cp) {
 
 /* Clique nas cartas de condição. */
 void click_condition_buttons(clk_flag flags, challenger_rule cr, card_pile *cp) {
+    int aux; 
     if(flags.ev_status == 1) {
         // verifica o "nível de carta" em programação.
         // para saber se o usuário pode utilizar a posição em que clicou.
         if(flags.card_pos < cr.cond) {
-            // Adiciona a carta à pilha de cartas do usuário de acordo com
-            // a nossa definição de index de cartas (cartas de condição começam do 1000).
-            card_pull(cp, flags.card_pos + 1000);
+            // Define condições do if
+            if (flags.card_pos == 0) {
+                // Pega a condição definida pelo usuário
+                aux = show_cond_dialog(cond, cond_buttons);
 
-            // Desenha ela na área de cartas selecionadas.
-            draw_selected_card(flags.card_pos + 1000, flags.card_num);
+                // Adiciona a carta à pilha de cartas do usuário de acordo com
+                // a nossa definição de index de cartas (cartas de condição começam do 1000).
+                card_pull(cp, aux + 10000);
+
+                // Desenha ela na área de cartas selecionadas.
+                draw_selected_card(aux + 10000, flags.card_num);
+            } else {
+                // Adiciona a carta à pilha de cartas do usuário de acordo com
+                // a nossa definição de index de cartas (cartas de condição começam do 1000).
+                card_pull(cp, flags.card_pos + 1000);
+
+                // Desenha ela na área de cartas selecionadas.
+                draw_selected_card(flags.card_pos + 1000, flags.card_num);
+            }
         }
     }
 }
@@ -156,7 +170,6 @@ int execute_event(int ev_type, clk_flag *flags, challenger_rule cr, card_pile *c
 
         /* Carta de compilar. */
         case 6:
-            // TODO melhorar esta validação
             return validate_selection(cr.v, (*cp).v);
         break;
 
