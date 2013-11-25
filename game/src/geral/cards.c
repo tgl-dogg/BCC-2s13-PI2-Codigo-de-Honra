@@ -25,19 +25,19 @@
 
 // Posição e tamanho do botão memória
 #define MEM_X 608
-#define MEM_Y 372
+#define MEM_Y 380
 #define MEM_W 64
 #define MEM_H 64
 
 // Posição e tamanho do botão help
 #define HELP_X 678
-#define HELP_Y 372
+#define HELP_Y 380
 #define HELP_W 64
 #define HELP_H 64
 
 // Posição e tamanho do botão compilar
 #define COMP_X 610
-#define COMP_Y 442
+#define COMP_Y 450
 #define COMP_W 128
 #define COMP_H 128
 
@@ -160,7 +160,7 @@ void draw_selected_card(int index, int count) {
 void redraw_selected_cards(card_pile cp) {
 	int i, count;
 	int v[15];
-    ALLEGRO_COLOR color = al_map_rgba_f(0, 0, 0, 0);
+    ALLEGRO_COLOR color = al_map_rgb(0, 0, 0);
 
     al_set_target_bitmap(select_cards_pos);
 	al_clear_to_color(color);	
@@ -260,7 +260,6 @@ Verifica se os dois vetores de cartas são iguais. Se iguais, retorna -1.
 Se diferentes, retorna o index onde começa a diferença entre eles.
 */
 int validate_selection(int v1[], int v2[]) {
-	// TODO realizar um break quando um dos dois for -1
 	int i;
 	int index = -1;
 
@@ -308,6 +307,19 @@ void transferir_desafio(challenger_rule *cr, int v[]) {
 		(*cr).v[i] = v[i];	
 	}
 }
+
+/* Transfere o conteúdo de uma String para a outra.
+	Utilizado para facilitar a transmissão de condições pelo código. */
+void transferir_condicao(char *dest, char *origin) {
+	int i;
+
+	for (i = 0; origin[i] != '\0'; i++) {
+		dest[i] = origin[i];
+	}
+
+  	dest[i] = '\0';
+}
+
 /* Inicializa a pilha de cartas. */
 void card_pile_init(card_pile *cp) {
     int i;

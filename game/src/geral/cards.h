@@ -55,6 +55,7 @@ int validate_selection(int v1[], int v2[]);
 
 void inicializa_vetor(int v[]);
 void transferir_desafio(challenger_rule *cr, int v[]);
+void transferir_condicao(char *dest, char *origin);
 void cr_init(challenger_rule *cr);
 
 void card_pile_init(card_pile *cp);

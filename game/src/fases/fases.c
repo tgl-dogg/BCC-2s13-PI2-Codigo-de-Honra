@@ -42,8 +42,8 @@ ALLEGRO_BITMAP *text_pos, *select_cards_pos, *original_pos;
 
 // Text file
 char ***text;
-char *cond;
-char *cond_buttons;
+char cond[500];
+char cond_buttons[500];
 
 /*  Inicialização das fases no geral.
     Retorna -1 caso dê erro em algum ponto, 
@@ -79,6 +79,12 @@ int fases_manager() {
     // Imagens de interação com texto (também estarão em todas as fases).
     im_tutor = al_load_bitmap("res/img/gen/tutor.png");
 
+    /* Intro */
+    im_bg = al_load_bitmap("res/img/bg/bg_intro.png");
+
+    text = load_file("res/text/intro.txt", &text_counter);
+    intro();
+
 	/* Fase 1 */
 	// Background.
     // TODO adicionar background
@@ -101,10 +107,6 @@ int fases_manager() {
 
     // Boss.
     im_boss = al_load_bitmap("res/img/boss/minotaur.png");
-
-
-    cond = malloc(sizeof(char));
-    cond_buttons = malloc(sizeof(char));
 
     // Carrega os textos da fase 1.
     text = load_file("res/text/des_file1.txt", &text_counter);
@@ -266,7 +268,7 @@ int init_text_bitmap() {
     original_pos = al_get_target_bitmap();
 
     // Cria um sub_bitmap para desenhar os textos.
-    text_pos = al_create_sub_bitmap(al_get_backbuffer(janela), 100, 15, 400, 210);
+    text_pos = al_create_sub_bitmap(al_get_backbuffer(janela), 100, 15, 450, 210);
 
     // Cria um sub_bitmap para desenhar as cartas selecionadas pelo uusário.
     select_cards_pos = al_create_sub_bitmap(al_get_backbuffer(janela), 570, 15, 210, 350);
