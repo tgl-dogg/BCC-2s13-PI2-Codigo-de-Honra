@@ -15,6 +15,7 @@
 
 int fases_manager();
 
+void intro();
 int fase1_init();
 int fase2_init();
 int fase3_init();
