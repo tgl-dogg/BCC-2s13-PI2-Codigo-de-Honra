@@ -22,8 +22,8 @@ extern ALLEGRO_BITMAP *im_tutor;
 extern char ***text;
 
 // Condições.
-extern char *cond;
-extern char *cond_buttons;
+extern char cond[500];
+extern char cond_buttons[500];
 
 int fase1_init() {
 	// Guarda qual texto do file queremos utilizar;
@@ -42,11 +42,9 @@ int fase1_init() {
 	// Inicializa a struct dos desafios
 	cr_init(&cr);
 	
-	// Define a cor para limpar a tela (preto) e limpa.
+	// Define a cor para limpar a tela (preto), limpa e adiciona o background.
  	clean_color = al_map_rgb(0, 0, 0);
     al_clear_to_color(clean_color);
-
-    // Desenha o background.
     al_draw_bitmap(im_bg, 0, 0, 0);
 
     // Define as cartas a serem desenhadas.
@@ -57,6 +55,7 @@ int fase1_init() {
     draw_prog_cards(cr);    
     draw_conditional_cards(cr);
     draw_action_cards(cr);
+    al_flip_display();
 
     // Texto de introdução sobre as primeiras cartas
     speaker = im_tutor;
@@ -76,9 +75,13 @@ int fase1_init() {
     transferir_desafio(&cr, v);
     resultado_desafio = create_desafio(cr);
 
-    if (resultado_desafio < 0) {
+    if (resultado_desafio <= 0) {
         return show_try_again_dialog("Desafio do Lobo");
     }
+
+    al_clear_to_color(clean_color);
+    al_draw_bitmap(im_bg, 0, 0, 0);
+    al_flip_display();
 
     cr.prog = 2;
     cr.cond = 0;
@@ -87,6 +90,7 @@ int fase1_init() {
     draw_prog_cards(cr);    
     draw_conditional_cards(cr);
     draw_action_cards(cr);
+    al_flip_display();
 
     text_pos = 3;
     speaker = im_tutor;
@@ -102,6 +106,7 @@ int fase1_init() {
     draw_prog_cards(cr);    
     draw_conditional_cards(cr);
     draw_action_cards(cr);
+    al_flip_display();
 
     text_pos = 5;
     draw_text(text, text_pos, speaker);
@@ -115,13 +120,22 @@ int fase1_init() {
     transferir_desafio(&cr, v);
     resultado_desafio = create_desafio(cr);
 
-    if (resultado_desafio < 0) {
+    if (resultado_desafio <= 0) {
         return show_try_again_dialog("Desafio da Cobra");
     }
+
+    al_clear_to_color(clean_color);
+    al_draw_bitmap(im_bg, 0, 0, 0);
+    al_flip_display();
 
     cr.prog = 2;
     cr.cond = 2;
     cr.act = 2;
+
+    draw_prog_cards(cr);    
+    draw_conditional_cards(cr);
+    draw_action_cards(cr);
+    al_flip_display();
 
     text_pos = 7;
     speaker = im_tutor;
@@ -138,9 +152,13 @@ int fase1_init() {
     transferir_desafio(&cr, v);
     resultado_desafio = create_desafio(cr);
 
-    if (resultado_desafio < 0) {
+    if (resultado_desafio <= 0) {
         return show_try_again_dialog("Desafio da Salamandra");
     }
+
+    al_clear_to_color(clean_color);
+    al_draw_bitmap(im_bg, 0, 0, 0);
+    al_flip_display();
 
     text_pos = 10;
     speaker = im_tutor;
@@ -157,9 +175,13 @@ int fase1_init() {
     transferir_desafio(&cr, v);
     resultado_desafio = create_desafio(cr);
 
-    if (resultado_desafio < 0) {
-        return show_try_again_dialog("Desafio da Cobra");
+    if (resultado_desafio <= 0) {
+        return show_try_again_dialog("Desafio do Minotauro");
     }
+
+    al_clear_to_color(clean_color);
+    al_draw_bitmap(im_bg, 0, 0, 0);
+    al_flip_display();
 
     text_pos = 13;
     speaker = im_tutor;
@@ -179,14 +201,18 @@ void desafio_lobo(int v[]) {
 
 void desafio_cobra(int v[]) {
 	inicializa_vetor(v);
+    transferir_condicao(cond, "I- Se a cobra estiver hostil;\nII- Se a cobra estiver destraída;\nIII- Se a cobra for venenosa.");
+    transferir_condicao(cond_buttons, "Condição I|Condição II|Condição III");
 
     v[0] = IF;
-    v[1] = 10002; //alguma condição "se a cobra estiver destraída"
+    v[1] = 10000+2; //alguma condição "se a cobra estiver destraída"
     v[2] = ATK;
 }
 
 void desafio_salamandra(int v[]) {
 	inicializa_vetor(v);
+    transferir_condicao(cond, "I- Se a salamandra for vermelha;\nII- Se a salamandra estiver em chamas.");
+    transferir_condicao(cond_buttons, "Condição I|Condição II");
 
     v[0] = IF;
     v[1] = 10000+2; //alguma condição "se a salamandra estiver pegando fogo"
@@ -197,6 +223,8 @@ void desafio_salamandra(int v[]) {
 
 void desafio_minotauro(int v[]) {
 	inicializa_vetor(v);
+    transferir_condicao(cond, "I- Se o minotauro estiver vulnerável;\nII- Se o minotauro não estiver vulnerável;\nIII- Se o minotauro não tiver chifres pontudos;\nIV- Se o minotauro for amigo.");
+    transferir_condicao(cond_buttons, "Condição I|Condição II|Condição III|Condição IV");
 
     v[0] = IF;
     v[1] = 10000+1; //alguma condição "se ele estiver vulnerável"

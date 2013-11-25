@@ -13,9 +13,9 @@ direta no jogo, utilize a carta*
 da esquerda e em seguida, a ação*
 que deseja executar.*
 *
-Para utilizar as cartas, basta*
-clicar nelas uma vez.*
-*
+Para selecionar as cartas, basta*
+clicar nelas uma vez. Ao final,*
+Clique no baralho para usar.*
 Vamos para um desafio!*						//EOT
 Desafio:*									//Texto 2	//Desafio
 Derrotar o lobo a seguir.*

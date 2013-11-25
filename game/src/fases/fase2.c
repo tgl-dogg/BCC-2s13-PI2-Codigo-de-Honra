@@ -17,8 +17,8 @@ extern ALLEGRO_BITMAP *im_tutor;
 extern char ***text;
 
 // Condições.
-extern char *cond;
-extern char *cond_buttons;
+extern char cond[500];
+extern char cond_buttons[500];
 
 void desafio_sea_serpent(int v[]);
 void desafio_hydra(int v[]);
