@@ -1,5 +1,10 @@
 Estrutura de pasta:
 
+banca/
+	-autores.pdf
+	-estrutura.pdf
+	-intruçoes.pdf
+
 documentação/
 	- Arquivos .tex e .pdf da documentação do jogo e do poster.
 	/estruturando o artigo 
