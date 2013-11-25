@@ -114,8 +114,8 @@ físicos, mas com a combinação*
 certa de poções eles podem ficar*
 vulneráveis.*
 Utilize todas as poções que tiver*
-e, depois disso, ENQUANTO estiver*
-vulnerável, ataque!*					//EOT
+e, depois disso, ENQUANTO ele*
+estiver vulnerável, ataque!*			//EOT
 As poções funcionaram e você*			//Texto 13
 passou no desafio final!*
 *

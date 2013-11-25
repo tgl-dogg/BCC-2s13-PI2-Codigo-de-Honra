@@ -125,7 +125,7 @@ int fases_manager() {
         return fase_result;
     }
 
-    return 1;
+    //return 1;
 
     /* Fase 2 */
     // Background.
@@ -148,7 +148,7 @@ int fases_manager() {
     // Repete a fase 2 enquanto usuário não vencer (1), desistir (0) ou dar erro (-1);
     do {
         fase_result = fase2_init();
-    } while (fase_result == 0);
+    } while (fase_result == 2);
 
     // Libera textos da fase 2.
     free_tri_matrix(text, text_counter, 9);
@@ -181,7 +181,7 @@ int fases_manager() {
     // Repete a fase 3 enquanto usuário não vencer (1), desistir (0) ou dar erro (-1);
     do {
         fase_result = fase3_init();
-    } while (fase_result == 0);
+    } while (fase_result == 2);
 
     // Libera textos da fase 3.
     free_tri_matrix(text, text_counter, 9);

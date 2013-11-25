@@ -59,9 +59,9 @@ mais cartas por esta atuação.*
 Estava guardando para depois*
 do pântano, mas você já pode*
 ficar com elas: carta de*
-repetição (loop) e carta de*
-fim de repetição (break).*
-*										//EOT
+repetição (loop) à esquerda e a 
+carta de fim de repetição (break)*
+no centro da tela.*						//EOT
 Utilizar a carta de loop será bem*		//Texto 7
 fácil para você. Quando clicar na*
 carta, deverá usar a carta de*
@@ -103,7 +103,7 @@ isto é impressionante!*
 *
 Vamos rápido terminar o seu teste*
 de admissão, você tem que jogar*
-em nosso desafio da arena!*
+em nossa arena de desafios!*
 *
 Vocês andam mais um pouco e estão*
 de frente para um castelo.*				//EOT

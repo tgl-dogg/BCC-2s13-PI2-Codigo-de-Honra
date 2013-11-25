@@ -57,12 +57,10 @@ int fase1_init() {
     draw_action_cards(cr);
     al_flip_display();
 
-    // Texto de introdução sobre as primeiras cartas
+    text_pos = 0;
     speaker = im_tutor;
-	text_pos = 0;
     draw_text(text, text_pos, speaker);
 
-    // Texto de explicação de como usar as cartas
 	text_pos = 1;
     draw_text(text, text_pos, speaker);
 
