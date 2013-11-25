@@ -137,9 +137,25 @@ int main() {
                 al_unregister_event_source(interacao, al_get_mouse_event_source());
 
                 // Inicializa o módulo que lida com as fases do jogo.
-                fases_manager();
-                printf("\nFim da execução das fases.");
-                //break;
+                if (fases_manager() >= 0) {
+                     // Reconstroi a tela inicial
+                        printf("\nFim da execução das fases.");
+
+                        al_clear_to_color(al_map_rgb(255, 255, 255)); 
+                        al_draw_bitmap(logo, 100, 50, 0); 
+                        al_draw_bitmap(jogar, 50, 350, 0); 
+                        al_draw_bitmap(sair, 50, 450, 0);
+
+                        al_register_event_source(interacao, al_get_mouse_event_source());
+
+                        al_flip_display();
+                } else {
+                    show_dialog("Código de Honra",
+                                "Erro!",
+                                "Falha em alguma utilização de recursos.\nFavor contactar os desenvolvedores do jogo.",
+                                NULL, ALLEGRO_MESSAGEBOX_ERROR);
+                    break;
+                }
             }
         }
         // Atualiza a tela
