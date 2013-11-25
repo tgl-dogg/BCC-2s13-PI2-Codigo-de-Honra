@@ -5,7 +5,7 @@ EXEC=game
 SRC:= $(wildcard */*.c) $(wildcard */*/*.c) $(wildcard */*/*/*.c)
 #SRC:= $(wildcard **/*.c)
 OBJ= $(SRC:.c=.o)
-LIBS=-lallegro -lallegro_image -lallegro_font -lallegro_ttf
+LIBS=-lallegro -lallegro_image -lallegro_font -lallegro_ttf -lallegro_dialog
 
 all: $(EXEC)
 

@@ -1,0 +1,28 @@
+3
+Olá guerreiro, seja bem vindo ao*		//Texto 0
+jogo Código de Honra!*
+*
+Vamos começar então com a nossa*
+arena de desaf... espere!*
+Você é novo por aqui? Precisa*
+Passar pelo treinamento então!*		
+*
+Clique para continuar*					//EOT
+Este é um jogo de cartas cujo*			//Texto 1
+funcionamento lhe ajudará a*
+compreender um pouco do mundo*
+da programação.*
+As cartas representam instruções*
+que se assemelham à algoritmos*
+simples, mas que lhe darão a*
+ideia de como pensar em uma*
+solução lógica para um problema.*		//EOT
+Você será levado para a floresta*		//Texto 2
+para fazer o treinamento e então.*
+poderá participar de nossa arena.*
+*
+Siga-me, serei o seu tutor!*
+*
+Você e o tutor entram em uma*
+floresta onde há um acampamento,*
+e assim começa a sua aventura!*			//EOT

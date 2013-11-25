@@ -4,17 +4,13 @@
 #include <stdio.h>
 
 #include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
-#include <allegro5/allegro_font.h>
-#include <allegro5/allegro_ttf.h>
+#include <allegro5/allegro_native_dialog.h>
 
-#define TAM 2
-#define MAX 25
+/* Retorna 0 em erro, 1 caso clique no botão 1 ou 2 caso clique no botão 2. */
 
-void copy_str(char dest[], char orig[]);
-
-void print_cond(ALLEGRO_FONT *font, ALLEGRO_COLOR font_color, char cond1[][MAX], char cond2[][MAX]);
-
-int load_cond(char cond1[][MAX], char cond2[][MAX]);
+int show_alert_dialog(char *content);
+int show_try_again_dialog(char *title);
+int show_cond_dialog(char *cond, char *buttons);
+int show_dialog(char *title, char *heading, char *content, char *buttons, int flags);
 
 #endif

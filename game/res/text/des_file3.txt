@@ -1,37 +1,127 @@
-4
-frase1*
-frase2*
-frase3*
-frase4*
-frase5*
-frase6*
-frase7*
-frase8*
-frase9*
-fala1*
-fala2*
-fala3*
-fala4*
-fala5*
-fala6*
-fala7*
-fala8*
-fala9*
-texto1*
-texto2*
-texto3*
-texto4*
-texto5*
-texto6*
-texto7*
-texto8*
-texto9*
-descrição1*
-descrição2*
-descrição3*
-descrição4*
-descrição5*
-descrição6*
-descrição7*
-descrição8*
-descrição9*
+14
+O seu desafio final é derrotar o*		//Texto 0
+fantasma que mora neste castelo.*
+*
+Mas antes você deve coletar umas*
+poções de umas gosminhas que*
+vivem lá dentro.*
+*
+Posso ajudar na coleta, mas você*
+enfrentará o fantasma sozinho.*			//EOT
+Para coletar os itens, vou lhe*			//Texto 1
+dar mais algumas cartas.*
+*
+Esta nova carta do meio é a carta*
+de vetores (array). Antes de usar*
+você deve jogar a carta de loop e*
+não usar a carta de interrogação.*
+*
+*										//EOT
+A carta de vetores serve como um*		//Texto 2
+armazém de itens, que você usará*
+para coletar as poções das gosmas*
+que vivem no castelo.
+*
+Sendo assim a combinação de loop*
+com array irá executar uma ação*
+PARA cada item armazenado.*
+*										//EOT
+Estas ações são definidas pelas*		//Texto 3
+duas outras cartas que vou lhe*
+entregar: a carta de coletar e*
+a carta de utilizar. *
+Com a coleta, junte poções das*
+gosminhas rastejantes e use-as*
+quando encontrar o fantasma.*
+Não se esqueça de usar o break*
+após coletar ou utilizar o array.*		//EOT
+*										//Texto 4
+*
+*
+*
+          Conto com você!*
+*
+*
+*
+*										//EOT
+Você entra no castelo e se depara*		//Texto 5
+com um longo corredor, que é seu*
+único caminho. Seguindo em frente*
+eis que surge a primeira gosma*
+rastejante do castelo.*
+*
+Ela parece hostil, será preciso*
+derrotá-la para coletar as poções*
+*										//EOT
+Desafio: derrotar a gosminha e*			//Texto 6 //Desafio
+coletar as poções dela.*
+*
+Gosminhas rastejantes são fracas,*
+um ataque direto pode resolver o*
+problema.*
+*
+Não esqueça de coletar as poções.*
+*										//EOT
+Derrotar a gosminha foi uma*			//Texto 7
+tarefa simples.*
+Você chega ao fim do corredor e*
+encontra uma porta, a qual abre*
+com bastante cautela.*
+*
+Dentro dela há mais duas gosmas*
+juntas, é a sua chance de coletar*
+todas as poções necessárias!*			//EOT
+Desafio: derrotar as gosminhas e*		//Texto 8 //Desafio
+coletar as poções delas.*
+*
+Gosminhas rastejantes são fracas,*
+mas estão em duas. Se atacar uma*
+só, a outra pode fugir, então dê.*
+um jeito de atacar as duas com um*
+golpe só.*
+Não esqueça de coletar as poções.*		//EOT
+Com o seu array de poções cheio,*		//Texto 9
+você entra na sala seguinte e*
+procura pelo fantasma do castelo.*
+*
+Aos poucos, começa a ouvir sons*
+estranhos vindos de uma outra*
+porta do outro lado desta sala*
+e resolve então verificar.*
+*										//EOT
+Com o seu array de poções cheio,*		//Texto 10
+você entra na sala seguinte e*
+procura pelo fantasma do castelo.*
+*
+Aos poucos, começa a ouvir sons*
+estranhos vindos de uma outra*
+porta do outro lado desta sala*
+e resolve então verificar.*
+*										//EOT
+Os sons ficam mais altos conforme*		//Texto 11
+se aproximam e logo você está de*
+frente para a porta, que se abre*
+sozinha.*
+*
+Dentro é apenas um armário de*
+ferramentas vazio, então você.*
+dá meia volta para andar e.*
+acaba trombando com o fantasma*			//EOT
+Desafio: derrotar o fantasma*			//Texto 12 //Desafio
+*
+Fantasmas são imunes a ataques*
+físicos, mas com a combinação*
+certa de poções eles podem ficar*
+vulneráveis.*
+Utilize todas as poções que tiver*
+e, depois disso, ENQUANTO estiver*
+vulnerável, ataque!*					//EOT
+As poções funcionaram e você*			//Texto 13
+passou no desafio final!*
+*
+Saindo do castelo você encontra*
+seu tutor, que te parabeniza e*
+lhe entrega a permissão para*
+participar da arena.*
+*
+Que comecem os jogos!*					//EOT
