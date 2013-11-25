@@ -38,10 +38,12 @@ ALLEGRO_BITMAP *im_tutor;
 // Texto.
 ALLEGRO_FONT *font;
 ALLEGRO_COLOR font_color;
-ALLEGRO_BITMAP *text_pos, *original_pos;
+ALLEGRO_BITMAP *text_pos, *select_cards_pos, *original_pos;
 
 // Text file
 char ***text;
+char *cond;
+char *cond_buttons;
 
 /*  Inicialização das fases no geral.
     Retorna -1 caso dê erro em algum ponto, 
@@ -97,7 +99,12 @@ int fases_manager() {
     im_mon_set[1] = al_load_bitmap("res/img/mon/snake.png");
     im_mon_set[2] = al_load_bitmap("res/img/mon/salamander.png");
 
+    // Boss.
     im_boss = al_load_bitmap("res/img/boss/minotaur.png");
+
+
+    cond = malloc(sizeof(char));
+    cond_buttons = malloc(sizeof(char));
 
     // Carrega os textos da fase 1.
     text = load_file("res/text/des_file1.txt", &text_counter);
@@ -261,7 +268,10 @@ int init_text_bitmap() {
     // Cria um sub_bitmap para desenhar os textos.
     text_pos = al_create_sub_bitmap(al_get_backbuffer(janela), 100, 15, 400, 210);
 
-    if (text_pos == NULL || original_pos == NULL) {
+    // Cria um sub_bitmap para desenhar as cartas selecionadas pelo uusário.
+    select_cards_pos = al_create_sub_bitmap(al_get_backbuffer(janela), 570, 15, 210, 350);
+
+    if (text_pos == NULL || original_pos == NULL || select_cards_pos == NULL) {
         fprintf(stderr, "Falha ao criar os subs bitmaps!\n");
         return -1;
     }
@@ -271,6 +281,7 @@ int init_text_bitmap() {
 
 void destroy_text_bitmap() {
     al_destroy_bitmap(text_pos);
+    al_destroy_bitmap(select_cards_pos);
     al_destroy_bitmap(original_pos);
 }
 

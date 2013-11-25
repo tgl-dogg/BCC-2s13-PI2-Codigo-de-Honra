@@ -1,7 +1,9 @@
 #include "fases.h"
-#include "desafios/desafios.h"
-#include "descricao/descricao.h"
-#include "../geral/cards.h"
+
+void desafio_lobo(int v[]);
+void desafio_cobra(int v[]);
+void desafio_salamandra(int v[]);
+void desafio_minotauro(int v[]);
 
 // Variável externa de janela.
 extern ALLEGRO_DISPLAY *janela;
@@ -13,22 +15,21 @@ extern ALLEGRO_BITMAP *im_bg;
 extern ALLEGRO_BITMAP *im_boss;
 extern ALLEGRO_BITMAP *im_mon_set[5];
 
-// Cartas
-extern ALLEGRO_BITMAP *im_prog_set[5];
-extern ALLEGRO_BITMAP *im_cond_set[5];
-extern ALLEGRO_BITMAP *im_act_set[5];
-
 // Tutor
 extern ALLEGRO_BITMAP *im_tutor;
 
 // Text file.
 extern char ***text;
 
+// Condições.
+extern char *cond;
+extern char *cond_buttons;
+
 int fase1_init() {
 	// Guarda qual texto do file queremos utilizar;
-	int text_pos;
+	int text_pos, resultado_desafio;
 	// Aloca os desafios desta fase.
-	int v[4][15];
+	int v[15];
 
 	// Cor para limpar a tela
 	ALLEGRO_COLOR clean_color;
@@ -53,9 +54,9 @@ int fase1_init() {
     cr.cond = 0;
     cr.act = 1;
 
-    draw_prog_cards(im_prog_set, cr);    
-    draw_conditional_cards(im_cond_set, cr);
-    draw_action_cards(im_act_set, cr);
+    draw_prog_cards(cr);    
+    draw_conditional_cards(cr);
+    draw_action_cards(cr);
 
     // Texto de introdução sobre as primeiras cartas
     speaker = im_tutor;
@@ -63,57 +64,143 @@ int fase1_init() {
     draw_text(text, text_pos, speaker);
 
     // Texto de explicação de como usar as cartas
-	text_pos++;
+	text_pos = 1;
     draw_text(text, text_pos, speaker);
 
     // Primeiro desafio
-    text_pos++;
+    text_pos = 2;
     speaker = im_mon_set[0];
     draw_text(text, text_pos, speaker);
 
-    create_desafio(cr);
+    desafio_lobo(v);
+    transferir_desafio(&cr, v);
+    resultado_desafio = create_desafio(cr);
 
-    return 0;
+    if (resultado_desafio < 0) {
+        return show_try_again_dialog("Desafio do Lobo");
+    }
 
-    text_pos++;
+    cr.prog = 2;
+    cr.cond = 0;
+    cr.act = 1;
+
+    draw_prog_cards(cr);    
+    draw_conditional_cards(cr);
+    draw_action_cards(cr);
+
+    text_pos = 3;
     speaker = im_tutor;
-    // TODO definir textos a serem mostrados, a regra do desafio, o speaker, etc...
+    draw_text(text, text_pos, speaker);
+
+    text_pos = 4;
+    draw_text(text, text_pos, speaker);
+
+    cr.prog = 2;
+    cr.cond = 1;
+    cr.act = 1;
+
+    draw_prog_cards(cr);    
+    draw_conditional_cards(cr);
+    draw_action_cards(cr);
+
+    text_pos = 5;
+    draw_text(text, text_pos, speaker);
+
+    // Segundo desafio 
+    text_pos = 6;
+    speaker = im_mon_set[1];
+    draw_text(text, text_pos, speaker);
+
+    desafio_cobra(v);
+    transferir_desafio(&cr, v);
+    resultado_desafio = create_desafio(cr);
+
+    if (resultado_desafio < 0) {
+        return show_try_again_dialog("Desafio da Cobra");
+    }
+
     cr.prog = 2;
     cr.cond = 2;
     cr.act = 2;
-    //cr.v = 
 
-    //speaker = tutor;
-    //speaker = im_mon_set[0];
-    //speaker = im_mon_set[1];
-    //speaker = im_mon_set[2];
-    //speaker = boss;
+    text_pos = 7;
+    speaker = im_tutor;
+    draw_text(text, text_pos, speaker);
 
-	// texto texto texto
-	draw_text(text, text_pos, speaker);
+    text_pos = 8;
+    draw_text(text, text_pos, speaker);
+    
+    text_pos = 9;
+    speaker = im_mon_set[2];
+    draw_text(text, text_pos, speaker);
 
-    // Cria desafio de acordo com as regras especificadas.
-    create_desafio(cr);
-    al_flip_display();
+    desafio_salamandra(v);
+    transferir_desafio(&cr, v);
+    resultado_desafio = create_desafio(cr);
 
-    return 0;
+    if (resultado_desafio < 0) {
+        return show_try_again_dialog("Desafio da Salamandra");
+    }
+
+    text_pos = 10;
+    speaker = im_tutor;
+    draw_text(text, text_pos, speaker);
+
+    text_pos = 11;
+    draw_text(text, text_pos, speaker);
+
+    speaker = im_boss;
+    text_pos = 12;
+    draw_text(text, text_pos, speaker);
+    
+    desafio_minotauro(v);
+    transferir_desafio(&cr, v);
+    resultado_desafio = create_desafio(cr);
+
+    if (resultado_desafio < 0) {
+        return show_try_again_dialog("Desafio da Cobra");
+    }
+
+    text_pos = 13;
+    speaker = im_tutor;
+    draw_text(text, text_pos, speaker);
+
+
+    // Retorna sucesso do jogador.
+    return 1;
 }
 
 void desafio_lobo(int v[]) {
-	int i;
+	inicializa_vetor(v);
 
-	v[0] = 0;
-	v[1] = 
+	v[0] = DIRECT;
+	v[1] = ATK;
 }
 
 void desafio_cobra(int v[]) {
+	inicializa_vetor(v);
 
+    v[0] = IF;
+    v[1] = 10002; //alguma condição "se a cobra estiver destraída"
+    v[2] = ATK;
 }
 
 void desafio_salamandra(int v[]) {
+	inicializa_vetor(v);
 
+    v[0] = IF;
+    v[1] = 10000+2; //alguma condição "se a salamandra estiver pegando fogo"
+    v[2] = DEF;
+    v[3] = IF_ELSE;
+    v[4] = ATK;
 }
 
 void desafio_minotauro(int v[]) {
+	inicializa_vetor(v);
 
+    v[0] = IF;
+    v[1] = 10000+1; //alguma condição "se ele estiver vulnerável"
+    v[2] = ATK;
+    v[3] = IF_ELSE;
+    v[4] = DEF;
 }
