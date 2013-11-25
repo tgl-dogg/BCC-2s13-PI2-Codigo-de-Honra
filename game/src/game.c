@@ -151,7 +151,7 @@ int main() {
                         al_flip_display();
                 } else {
                     show_dialog("Código de Honra",
-                                "Erro!",
+                                "Erro de recursos",
                                 "Falha em alguma utilização de recursos.\nFavor contactar os desenvolvedores do jogo.",
                                 NULL, ALLEGRO_MESSAGEBOX_ERROR);
                     break;
