@@ -10,6 +10,7 @@
 
 // libs implementadas
 #include "fases/fases.h"
+#include "geral/dialog.h"
 
 // Atributos da tela
 const int LARGURA_TELA = 800;
@@ -33,14 +34,20 @@ int main() {
     ALLEGRO_FONT *font;
 
     // Inicializa a Allegro
-    al_init();
+    if (!al_init()) {
+        fprintf(stderr, "Falha ao iniciar o Allegro!\n");
+    }
+
     // Inicializa o add-on para utilização de imagens
-    al_init_image_addon();
+    if (!al_init_image_addon()) {
+        show_dialog("Código de Honra", "Erro!", "Falha ao inicializar o add-on de imagens.", NULL, ALLEGRO_MESSAGEBOX_ERROR);
+    }
+
     // inicializa o add-on para fontes
     al_init_font_addon();
     // inicializa o add-on para fontes true-type
-    al_init_ttf_addon(); 
-    // Atribui em disp_data as configurações de tela
+    al_init_ttf_addon();
+    // Atribui em disp_data as configurações de tela    
     al_get_display_mode(0, &disp_data);
 
     // Configura o display
@@ -57,14 +64,14 @@ int main() {
 
     // Torna apto o uso de mouse na aplicação
     if (!al_install_mouse()){
-        fprintf(stderr, "Falha ao inicializar o mouse.\n");
+        show_dialog("Código de Honra", "Erro!", "Falha ao inicializar o uso de mouse.", NULL, ALLEGRO_MESSAGEBOX_ERROR);
         al_destroy_display(janela);
         return -1;
     }
 
     // Atribui o cursor padrão do sistema para ser usado
-    if (!al_set_system_mouse_cursor(janela, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT)) {
-        fprintf(stderr, "Falha ao atribuir ponteiro do mouse.\n");
+    if (!al_set_system_mouse_cursor(janela, ALLEGRO_SYSTEM_MOUSE_CURSOR_DEFAULT)) {        
+        show_dialog("Código de Honra", "Erro!", "Falha ao atribuir um ponteiro ao mouse.", NULL, ALLEGRO_MESSAGEBOX_ERROR);
         al_destroy_display(janela);
         return -1;
     }
@@ -73,7 +80,8 @@ int main() {
     font_color = al_map_rgb(0, 0, 0);
     font = al_load_ttf_font("res/font/architectsdaughter.ttf", 60, 0);
     if (!font) {
-        printf("Falha ao inicializar architectsdaughter.ttf");
+        show_dialog("Código de Honra", "Erro!", "Falha ao inicializar a fonte dos textos.", NULL, ALLEGRO_MESSAGEBOX_ERROR);
+        al_destroy_display(janela);
         return 0;
     }  
 
@@ -94,7 +102,7 @@ int main() {
     // Criando interações do mouse
     interacao = al_create_event_queue();
     if (!interacao) {
-        fprintf(stderr, "Falha ao inicializar a interação de eventos.\n");
+        show_dialog("Código de Honra", "Erro!", "Falha ao inicializar a fila de eventos.", NULL, ALLEGRO_MESSAGEBOX_ERROR);
         al_destroy_display(janela);
         return -1;
     }
@@ -130,10 +138,8 @@ int main() {
 
                 // Inicializa o módulo que lida com as fases do jogo.
                 fases_manager();
+                printf("\nFim da execução das fases.");
                 //break;
-            } else {
-                printf("\nEvento não suportado.");
-                continue;
             }
         }
         // Atualiza a tela
