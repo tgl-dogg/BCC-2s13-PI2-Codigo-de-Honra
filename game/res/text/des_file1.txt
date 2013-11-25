@@ -38,12 +38,12 @@ tomada de decisão!* 						//EOT
 A carta de tomada de decisão*				//Texto 4
 vai ajudar a pensar em certos*
 desafios. *
-*
 Quando clicar nela, deverá*
 definir uma condição que,*
 se for verdadeira, irá *
 executar a carta que vier*
-em seguida.*								//EOT
+em seguida. Não precisa usar*		
+a carta de ação direta.*					//EOT
 Para definir a condição, clique*			//Texto 5
 na carta e em seguida utilize a*
 carta de interrogação no centro*
@@ -51,8 +51,8 @@ da tela. Um diálogo aparecerá, e*
 você deve escolher uma opção. *
 *
 Após isso, basta selecionar outra*
-carta e esta será jogada apenas SE*
-a condição for verdadeira.*					//EOT
+carta e esta será jogada apenas*
+SE a condição for verdadeira.*					//EOT
 Desafio:*									//Texto 6	//Desafio
 Derrotar a cobra a seguir.*
 *
