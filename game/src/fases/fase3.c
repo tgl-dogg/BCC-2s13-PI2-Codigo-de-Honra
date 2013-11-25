@@ -103,7 +103,12 @@ int fase3_init() {
     resultado_desafio = create_desafio(cr);
 
     if (resultado_desafio <= 0) {
-        return show_try_again_dialog("Desafio da Gosminha");
+        resultado_desafio = show_try_again_dialog("Desafio da Gosma");
+        if (resultado_desafio == 1) {
+            return 0;
+        } else {
+            return resultado_desafio;
+        }
     }
 
 	text_pos = 7;
@@ -120,7 +125,12 @@ int fase3_init() {
     resultado_desafio = create_desafio(cr);
 
     if (resultado_desafio <= 0) {
-        return show_try_again_dialog("Desafio das Gosminhas");
+        resultado_desafio = show_try_again_dialog("Desafio das Gosmas");
+        if (resultado_desafio == 1) {
+            return 0;
+        } else {
+            return resultado_desafio;
+        }
     }
 
 	text_pos = 9;
@@ -143,7 +153,12 @@ int fase3_init() {
     resultado_desafio = create_desafio(cr);
 
     if (resultado_desafio <= 0) {
-        return show_try_again_dialog("Desafio do Fantasma");
+        resultado_desafio = show_try_again_dialog("Desafio do Fantasma");
+        if (resultado_desafio == 1) {
+            return 0;
+        } else {
+            return resultado_desafio;
+        }
     }
 
 	text_pos = 13;

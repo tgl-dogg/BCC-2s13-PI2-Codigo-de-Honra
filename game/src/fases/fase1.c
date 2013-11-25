@@ -74,7 +74,12 @@ int fase1_init() {
     resultado_desafio = create_desafio(cr);
 
     if (resultado_desafio <= 0) {
-        return show_try_again_dialog("Desafio do Lobo");
+        resultado_desafio = show_try_again_dialog("Desafio do Lobo");
+        if (resultado_desafio == 1) {
+        	return 0;
+        } else {
+        	return resultado_desafio;
+        }
     }
 
     al_clear_to_color(clean_color);
@@ -119,10 +124,15 @@ int fase1_init() {
     resultado_desafio = create_desafio(cr);
 
     if (resultado_desafio <= 0) {
-        return show_try_again_dialog("Desafio da Cobra");
+        resultado_desafio = show_try_again_dialog("Desafio da Cobra");
+        if (resultado_desafio == 1) {
+        	return 0;
+        } else {
+        	return resultado_desafio;
+        }
     }
 
-    al_clear_to_color(clean_color);
+    al_clear_to_color(clean_color); 
     al_draw_bitmap(im_bg, 0, 0, 0);
     al_flip_display();
 
@@ -151,7 +161,12 @@ int fase1_init() {
     resultado_desafio = create_desafio(cr);
 
     if (resultado_desafio <= 0) {
-        return show_try_again_dialog("Desafio da Salamandra");
+        resultado_desafio = show_try_again_dialog("Desafio da Salamandra");
+        if (resultado_desafio == 1) {
+        	return 0;
+        } else {
+        	return resultado_desafio;
+        }
     }
 
     al_clear_to_color(clean_color);
@@ -174,7 +189,12 @@ int fase1_init() {
     resultado_desafio = create_desafio(cr);
 
     if (resultado_desafio <= 0) {
-        return show_try_again_dialog("Desafio do Minotauro");
+        resultado_desafio = show_try_again_dialog("Desafio do Minotauro");
+        if (resultado_desafio == 1) {
+        	return 0;
+        } else {
+        	return resultado_desafio;
+        }
     }
 
     al_clear_to_color(clean_color);

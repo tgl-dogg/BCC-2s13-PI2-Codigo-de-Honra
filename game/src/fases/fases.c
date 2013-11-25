@@ -85,10 +85,12 @@ int fases_manager() {
     text = load_file("res/text/intro.txt", &text_counter);
     intro();
 
+    free_tri_matrix(text, text_counter, 9);
+
 	/* Fase 1 */
 	// Background.
     // TODO adicionar background
-   	im_bg = al_load_bitmap("res/img/bg/bg_test.png");
+   	im_bg = al_load_bitmap("res/img/bg/img_wiki/floresta.png");
 
    	// Cartas.
     im_prog_set[0] = al_load_bitmap("res/img/prog/direct_symbol.png");
@@ -125,12 +127,10 @@ int fases_manager() {
         return fase_result;
     }
 
-    //return 1;
-
     /* Fase 2 */
     // Background.
     // TODO adicionar background
-    im_bg = al_load_bitmap("res/img/bg/bg_test.png");
+    im_bg = al_load_bitmap("res/img/bg/img_wiki/pantano.png");
 
     // Cartas.
     im_prog_set[2] = al_load_bitmap("res/img/prog/while_symbol.png");
@@ -162,7 +162,7 @@ int fases_manager() {
     /* Fase 3 */
     // Background.
     // TODO adicionar background
-    im_bg = al_load_bitmap("res/img/bg/bg_test.png");
+    im_bg = al_load_bitmap("res/img/bg/img_publicdomainpictures/castelo.png");
     
     // Cartas.
     im_cond_set[3] = al_load_bitmap("res/img/prog_condition/array_symbol.png");
@@ -171,7 +171,7 @@ int fases_manager() {
     im_act_set[4] = al_load_bitmap("res/img/act/array_item.png");
 
     // Monstros.
-    im_mon_set[3] = al_load_bitmap("res/img/mon/mini_ghost.png");
+    im_mon_set[4] = al_load_bitmap("res/img/mon/mini_ghost.png");
 
     im_boss = al_load_bitmap("res/img/boss/ghost.png");
 
@@ -284,7 +284,6 @@ int init_text_bitmap() {
 void destroy_text_bitmap() {
     al_destroy_bitmap(text_pos);
     al_destroy_bitmap(select_cards_pos);
-    al_destroy_bitmap(original_pos);
 }
 
 /* Chama as outras funções de liberação dos recursos alocados. */

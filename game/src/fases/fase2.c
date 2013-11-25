@@ -76,6 +76,7 @@ int fase2_init() {
     
     // Desafio da Serpente 1.
 	text_pos = 3;
+    speaker = im_mon_set[3];
     draw_text(text, text_pos, speaker);
 
     desafio_sea_serpent(v);
@@ -83,7 +84,12 @@ int fase2_init() {
     resultado_desafio = create_desafio(cr);
 
     if (resultado_desafio <= 0) {
-        return show_try_again_dialog("Desafio da Serpente Marinha");
+        resultado_desafio = show_try_again_dialog("Desafio da Serpente Marinha");
+        if (resultado_desafio == 1) {
+            return 0;
+        } else {
+            return resultado_desafio;
+        }
     }
 
     al_clear_to_color(clean_color);
@@ -104,7 +110,12 @@ int fase2_init() {
     resultado_desafio = create_desafio(cr);
 
     if (resultado_desafio <= 0) {
-        return show_try_again_dialog("Desafio da Serpente Marinha");
+        resultado_desafio = show_try_again_dialog("Desafio da Serpente Marinha");
+        if (resultado_desafio == 1) {
+            return 0;
+        } else {
+            return resultado_desafio;
+        }
     }
 
     al_clear_to_color(clean_color);
@@ -143,7 +154,12 @@ int fase2_init() {
     resultado_desafio = create_desafio(cr);
 
     if (resultado_desafio <= 0) {
-        return show_try_again_dialog("Desafio da Serpente Marinha");
+        resultado_desafio = show_try_again_dialog("Desafio da Hydra");
+        if (resultado_desafio == 1) {
+            return 0;
+        } else {
+            return resultado_desafio;
+        }
     }
 
     al_clear_to_color(clean_color);

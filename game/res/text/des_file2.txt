@@ -59,9 +59,9 @@ mais cartas por esta atuação.*
 Estava guardando para depois*
 do pântano, mas você já pode*
 ficar com elas: carta de*
-repetição (loop) à esquerda e a 
-carta de fim de repetição (break)*
-no centro da tela.*						//EOT
+repetição (loop) à esquerda e a
+carta de fim de repetição*
+(break) no centro da tela.*				//EOT
 Utilizar a carta de loop será bem*		//Texto 7
 fácil para você. Quando clicar na*
 carta, deverá usar a carta de*
@@ -91,7 +91,7 @@ Pior que isso: é uma hydra, a*
 besta de várias cabeças!*				//EOT
 Desafio: derrotar a hydra.*				//Texto 10 //Desafio
 Hydras são poderossíssimas e*
-conseguem regenerar algumas 
+conseguem regenerar algumas*
 de suas cabeças cortadas.*
 ENQUANTO a hydra possuir cabeças,*
 defenda-se SE ela estiver fazendo*

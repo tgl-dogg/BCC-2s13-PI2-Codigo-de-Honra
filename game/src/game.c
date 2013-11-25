@@ -20,6 +20,7 @@ const int ALTURA_TELA = 600;
 ALLEGRO_DISPLAY *janela = NULL;
 
 int main() {
+    int fases_resultado;
     // Variável representando a posição de tela
     ALLEGRO_DISPLAY_MODE disp_data;
     // Variável representando as imagens (menu)
@@ -136,10 +137,12 @@ int main() {
                 // Desregistra os eventos de mouse (novos eventos serão criados)
                 al_unregister_event_source(interacao, al_get_mouse_event_source());
 
+                fases_resultado = fases_manager();
+                printf("\nFim da execução das fases.");
+                
                 // Inicializa o módulo que lida com as fases do jogo.
-                if (fases_manager() >= 0) {
+                if (fases_resultado >= 0) {
                      // Reconstroi a tela inicial
-                        printf("\nFim da execução das fases.");
 
                         al_clear_to_color(al_map_rgb(255, 255, 255)); 
                         al_draw_bitmap(logo, 100, 50, 0); 
@@ -150,10 +153,7 @@ int main() {
 
                         al_flip_display();
                 } else {
-                    show_dialog("Código de Honra",
-                                "Erro de recursos",
-                                "Falha em alguma utilização de recursos.\nFavor contactar os desenvolvedores do jogo.",
-                                NULL, ALLEGRO_MESSAGEBOX_ERROR);
+                    show_error_dialog("Favor contactar os desenvolvedores do jogo.");
                     break;
                 }
             }

@@ -1,7 +1,11 @@
 #include "dialog.h"
 
 int show_dialog(char *title, char *heading, char *content, char *buttons, int flags) {
-    return al_init()? al_show_native_message_box(al_get_current_display(), title, heading, content, buttons, flags) : -1;
+    return al_show_native_message_box(al_get_current_display(), title, heading, content, buttons, flags);
+}
+
+int show_error_dialog(char *content) {
+    return show_dialog("Erro", "Falha ao lidar com recursos", content, NULL, ALLEGRO_MESSAGEBOX_ERROR);
 }
 
 int show_alert_dialog(char *content) {
