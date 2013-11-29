@@ -219,7 +219,7 @@ void desafio_lobo(int v[]) {
 
 void desafio_cobra(int v[]) {
 	inicializa_vetor(v);
-    transferir_condicao(cond, "I- Se a cobra estiver hostil;\nII- Se a cobra estiver destraída;\nIII- Se a cobra for venenosa.");
+    transferir_condicao(cond, "I- Se a cobra estiver hostil;\nII- Se a cobra estiver distraída;\nIII- Se a cobra for venenosa.");
     transferir_condicao(cond_buttons, "Condição I|Condição II|Condição III");
 
     v[0] = IF;

@@ -175,7 +175,7 @@ int fase2_init() {
 
 void desafio_sea_serpent(int v[]) {
 	inicializa_vetor(v);
-    transferir_condicao(cond, "I- Se a serpente marinha estiver destraída;\nII- Se a serpente marinha for fêmea;\nIII- Se a serpente marinha estiver submersa;\nIV- Se a serpente não for marinha.");
+    transferir_condicao(cond, "I- Se a serpente marinha estiver distraída;\nII- Se a serpente marinha for fêmea;\nIII- Se a serpente marinha estiver submersa;\nIV- Se a serpente não for marinha.");
     transferir_condicao(cond_buttons, "Condição I|Condição II|Condição III|Condição IV");
 
 	v[0] = IF;
